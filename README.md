@@ -7,7 +7,12 @@ I've recently updated Node.js to v17.0.1 so to run CRA, I needed to update the p
 
 [https://stackoverflow.com/questions/69665222/node-17-0-1-causes-some-error-digital-envelope-routinesunsupported]
 
+If you're having problems starting the project, please replace with the following:
 
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+  },
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
