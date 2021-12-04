@@ -1,36 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import CommentList from './CommentList';
 
 const CommentPage = () => {
 
-  const [state, setState] = useState({});
+  const [data, setData] = useState({});
 
-  const getData = async () => {
-    await fetch('data.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    })
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((myJson) => {
-        console.log(myJson);
-        setState(myJson)
-      });
-  };
-  
   useEffect(() => {
+    const getData = async () => {
+      await fetch('data.json', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((myJson) => {
+          console.log(myJson);
+          setData(myJson)
+        });
+    };
+
     getData();
-  }, []);
-  
-  console.log(state);
-  const name = state.restaurant.name;
-  console.log(name);
+  }, [])
+
+  console.log(data);
+ 
   return (
     <div>
-      {name}
+      <CommentList data={data} />
     </div>
   );
 };
