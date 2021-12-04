@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Comment from './Comment';
 import CommentFormTwo from './CommentFormTwo';
+import useToggle from './hooks/useToggleState';
 import { v4 as uuid } from 'uuid';
 
 const CommentList = ({ data }) => {
 
-  const [comments, setComments] = useState([...data]);
+  const [comments, setComments] = useState([ ...data]);
+  const [prevState, setPrevState] = useState([]);
+  const [hidden, setHidden] = useToggle(false);
 
   console.log(comments)
 
@@ -15,13 +18,13 @@ const CommentList = ({ data }) => {
   };
   
   const removeComment = (id) => {
-    // When we click the button 
-    // comment is instantly deleted
-    // and a confirmation pops up "Comment deleted. Undo"
-    // user has the option to "undo and recover the comment in the popup"
-    
+    setPrevState(comments);
     setComments(comments.filter((comment) => comment.id !== id));
   };
+  
+  const undoDelete = () => {
+    setComments(prevState);
+  }
 
   const updateComment = (id, updatedQuote) => {
     const updatedComments = comments.map((comment) => {
@@ -39,7 +42,10 @@ const CommentList = ({ data }) => {
         <li style={{ listStyleType: 'none' }}>
           {comments.map((comment) => (
             <Comment
+              // className={`shown-${comment.id}`}
+              // hidden={hidden}
               remove={() => removeComment(comment.id)}
+              undo={undoDelete}
               user={comment.user}
               message={comment.message}
               time={comment.time}

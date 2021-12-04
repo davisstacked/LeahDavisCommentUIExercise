@@ -5,7 +5,7 @@ import moment from 'moment';
 import './Comment.css'
 
 
-const Comment = ({time, message, user, image, remove, update, key, id, undo}) => {
+const Comment = ({ time, message, user, image, remove, update, key, id, undo, hidden }) => {
 
   return (
     <div className="Comment">
