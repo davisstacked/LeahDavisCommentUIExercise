@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 
 const CommentList = ({ data }) => {
 
-  const [comments, setComments] = useState([ ...data]);
+  const [comments, setComments] = useState([...data]);
 
   console.log(comments)
 
@@ -15,6 +15,9 @@ const CommentList = ({ data }) => {
   };
   
   const removeComment = (id) => {
+    // When we click the button 
+    // comment is instantly deleted
+    // and a confirmation pops up "Comment deleted"
     setComments(comments.filter((comment) => comment.id !== id));
   };
 
