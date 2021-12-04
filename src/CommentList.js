@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 const CommentList = ({ data }) => {
 
   
-  const [comments, setComments] = useState([ ...data ]);
+  const [comments, setComments] = useState([...data ]);
 
   const addComment = (comment) => {
     const newComment = { ...comment, id: uuid() };
@@ -37,6 +37,7 @@ const CommentList = ({ data }) => {
               user={comment.user}
               message={comment.message}
               time={comment.time}
+              image={comment.image}
               update={updateComment}
               key={comment.id}
               id={comment.id}

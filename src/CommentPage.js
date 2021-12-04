@@ -43,7 +43,6 @@ const CommentPage = () => {
  
   return (
     <div>
-      <CommentFormTwo />
       <CommentList data={commentData} />
     </div>
   );
