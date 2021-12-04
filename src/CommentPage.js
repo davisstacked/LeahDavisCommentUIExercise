@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import CommentList from './CommentList';
+import CommentFormTwo from './CommentFormTwo';
+import { v4 as uuid } from 'uuid';
 
 const CommentPage = () => {
 
   const [restaurantData, setRestaurantData] = useState({});
-  const [commentData, setCommentData] = useState([])
+  const [commentData, setCommentData] = useState([]);
 
   useEffect(() => {
+
     const getData = async () => {
       try {
 
@@ -22,8 +25,8 @@ const CommentPage = () => {
           })
           .then((myJson) => {
             console.log(myJson);
-            console.log(myJson.comments);
             console.log(myJson.restaurant);
+            console.log(myJson.comments);
             setRestaurantData(myJson.restaurant);
             setCommentData(myJson.comments);
           });
@@ -40,6 +43,7 @@ const CommentPage = () => {
  
   return (
     <div>
+      <CommentFormTwo />
       <CommentList data={commentData} />
     </div>
   );

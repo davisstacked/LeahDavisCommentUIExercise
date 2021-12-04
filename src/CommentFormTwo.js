@@ -21,7 +21,7 @@ const CommentFormTwo = ({ addComment }) => {
         value={comment.comment}
         type='text'
       />
-      <button>Save Comment</button>
+      <button>Add Comment</button>
     </form>
   );
 };

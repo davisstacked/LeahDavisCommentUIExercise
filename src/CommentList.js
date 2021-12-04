@@ -5,13 +5,11 @@ import { v4 as uuid } from 'uuid';
 
 const CommentList = ({ data }) => {
 
+  
   const [comments, setComments] = useState([ ...data ]);
-  
-  console.log(comments)
 
-  
   const addComment = (comment) => {
-    const newComment = { ...comment, id: uuid()};
+    const newComment = { ...comment, id: uuid() };
     setComments((state) => [...state, newComment]);
   };
   
@@ -51,9 +49,9 @@ const CommentList = ({ data }) => {
 
   return (
     <div className='CommentList'>
-      <h1>Comment List</h1>
-      {renderComments()}
       <CommentFormTwo addComment={addComment} />
+      <p>{comments.length} comments</p>
+      {renderComments()}
     </div>
   );
 };
