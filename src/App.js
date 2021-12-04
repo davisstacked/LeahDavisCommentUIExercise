@@ -1,5 +1,5 @@
 import CommentPage from './CommentPage';
-import CommentForm from './CommentForm';
+import CommentFormTwo from './CommentFormTwo';
 
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className='App'>
-      <CommentForm />
+      <CommentFormTwo />
     </div>
   );
 }
