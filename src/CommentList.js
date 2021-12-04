@@ -5,21 +5,16 @@ import { v4 as uuid } from 'uuid';
 
 const CommentList = ({ data }) => {
 
-  const initialState = data.comments;
-  const [comments, setComments] = useState([]);
-
-  console.log(initialState)
+  const [comments, setComments] = useState([ ...data ]);
   
+  console.log(comments)
+
   
   const addComment = (comment) => {
     const newComment = { ...comment, id: uuid()};
     setComments((state) => [...state, newComment]);
   };
   
-  // initialState.forEach(c => {
-  //   addComment(c)
-  // })
-
   const removeComment = (id) => {
     setComments(comments.filter((comment) => comment.id !== id));
   };
@@ -41,8 +36,10 @@ const CommentList = ({ data }) => {
           {comments.map((comment) => (
             <Comment
               remove={() => removeComment(comment.id)}
+              user={comment.user}
+              message={comment.message}
+              time={comment.time}
               update={updateComment}
-              quote={comment.comment}
               key={comment.id}
               id={comment.id}
             />

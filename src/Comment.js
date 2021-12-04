@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Comment = () => {
+const Comment = ({time, message, user}) => {
 
   return (
     <div>
-      <p>hi</p>
+      <p>{user}</p>
     </div>
   )
 }
