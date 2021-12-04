@@ -14,71 +14,78 @@ If you're having problems starting the project, please replace with the followin
     "build": "react-scripts build",
   },
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# UNICORN MAZE 🦄🦄🦄
 
-In the project directory, you can run:
+The deployed version of the game can be found below. 
 
-### `npm start`
+➡️ [Unicorn Escape](https://unicornmaze.netlify.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Scripts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`npm install` to install dependencies 
 
-### `npm test`
+`npm start` to run app in development mode on [http://localhost:3000](http://localhost:3000)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm test` to run tests in interactive watch mode
 
-### `npm run build`
+`npm run build` to build app for production in the `build` folder
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technology
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Language**: JavaScript  
+**Tools**:   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+|Tool Name|Function|
+|---|---|
+|**ReactJS**|to write reusable components|
+|**Create-React-App**|to bootstrap React setup and initial folder structure|
+|**uuid**|to assign children unique key props|
+|**classnames**|to conditionally render classes|
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Approach 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### API calls
+* handled in `src/API/UnicornAPI.js`, which includes a static API class tying together all methods used to communicate with API
+* prevents code duplication and separates concerns
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Components
+* `App` ➡️ `Context Providers`➡️ `Routes`
+* `Routes` includes Switch statement to Homepage (`/`), Game Page (`/game`) and Redirect to Homepage in case of typo following base URL
+* route `/game` renders `Game` component
+* `Game` component uses state to switch between
+	* `SetupPage` where user selects game difficulty, maze size & name
+	* `MazeWrapper` which includes actual Game
+	* `WinPage` where user can start new game and be redirected to homepage
+	* `LosePage` as above
 
-## Learn More
+#### State management
+* state is managed using React's Context API & split into 3 providers: `GameContextProvider`, `AudioContextProvider`, `MoveContextProvider`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Maze Rendering
+* maze drawing utilises CSS properties `gridTemplateColumns` and `border-top`, `border-bottom`, `border-left`, `border-right`
+* API call retrieves grid data array, which is then transformed using helper functions to include additional items `east` and `south` wherever appropriate, as well as `index number`
+* transformed grid data array mapped over to render individual `GridCell` components, passing down `borders`, `index` and `sprite positions` as props
+* `GridCell` uses props to conditionally render borders & sprites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Use of external libraries
+I tried to balance the recommended approach of "not reinventing the wheel" with demonstrating my capability to write code independendly. Whilst I leant heavily into external resources to handle movement and sound, I chose to refrain from using an external library and instead demonstrate original code writing in other places, for example in the `Form` component.
 
-### Code Splitting
+Format time: [Moment](https://momentjs.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Resources
 
-### Analyzing the Bundle Size
+All resources used are royalty-free.  
+Icons: [material-ui](https://phosphoricons.com/), [font-awesome](https://fontawesome.com/)
+SVG background: [bg-jar](https://bgjar.com/)  
+Art: [pinclipart](https://www.pinclipart.com/), [pngkit](https://www.pngkit.com/), [pexel](https://www.pexels.com/)  
+Audio Effects: [mixkit](https://mixkit.co/free-sound-effects/game)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Limitations
 
-### Making a Progressive Web App
+**Testing**: I am aware that the app lacks testing. I look forward to delving into testing in the future by learning about mocking as well as end-to-end testing libraries such as Cypress. 
+## Screengrab 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![screengrab](./src/Assets/Imgs/screengrab.png)
