@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Comment from './Comment';
 import CommentFormTwo from './CommentFormTwo';
 import { v4 as uuid } from 'uuid';
 
 const CommentList = ({ data }) => {
 
-  const [comments, setComments] = useState([...data]);
+  const [comments, setComments] = useState([ ...data]);
 
   console.log(comments)
 
-  const addComment = (comment) => {
-    const newComment = { ...comment, id: uuid() };
+  const addComment = (message) => {
+    const newComment = { ...message, id: uuid() };
     setComments((state) => [...state, newComment]);
   };
   
@@ -21,7 +21,7 @@ const CommentList = ({ data }) => {
   const updateComment = (id, updatedQuote) => {
     const updatedComments = comments.map((comment) => {
       if (comment.id === id) {
-        return { ...comment, comment: updatedQuote };
+        return { ...comment, message: updatedQuote };
       }
       return comment;
     });

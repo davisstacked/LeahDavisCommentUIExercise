@@ -4,17 +4,17 @@ import Button from '@mui/material/Button';
 import { withStyles } from '@material-ui/styles';
 import styles from './styles/CommentFormStyles';
 
-const CommentForm = ({ addProps }) => {
-  const [comment, setComment] = useState({ comment: '' });
+const CommentForm = ({ addComment }) => {
+  const [message, setMessage] = useState({ message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addComment(comment);
-    setComment({ comment: '' });
+    addComment(message);
+    setMessage({ message: '' });
   };
 
   const handleChange = (e) => {
-    setComment((state) => ({ ...state, [e.target.name]: e.target.value }));
+    setMessage((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
   return (

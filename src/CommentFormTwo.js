@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const CommentFormTwo = ({ addComment }) => {
-  const [comment, setComment] = useState({ comment: '' });
+  const [comment, setComment] = useState({ message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addComment(comment);
-    setComment({ comment: '' });
+    setComment({ message: '' });
   };
 
   const handleChange = (e) => {
@@ -17,8 +17,8 @@ const CommentFormTwo = ({ addComment }) => {
     <form className='CommentForm' onSubmit={handleSubmit}>
       <input
         onChange={handleChange}
-        name='comment'
-        value={comment.comment}
+        name='message'
+        value={comment.message}
         type='text'
       />
       <button>Add Comment</button>
