@@ -17,7 +17,9 @@ const CommentList = ({ data }) => {
   const removeComment = (id) => {
     // When we click the button 
     // comment is instantly deleted
-    // and a confirmation pops up "Comment deleted"
+    // and a confirmation pops up "Comment deleted. Undo"
+    // user has the option to "undo and recover the comment in the popup"
+    
     setComments(comments.filter((comment) => comment.id !== id));
   };
 

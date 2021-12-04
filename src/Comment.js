@@ -5,7 +5,7 @@ import moment from 'moment';
 import './Comment.css'
 
 
-const Comment = ({time, message, user, image, remove, update, key, id}) => {
+const Comment = ({time, message, user, image, remove, update, key, id, undo}) => {
 
   return (
     <div className="Comment">
@@ -18,6 +18,7 @@ const Comment = ({time, message, user, image, remove, update, key, id}) => {
       <div>
         <button onClick={remove}>Delete</button>
         <button>Edit</button>
+        <button onClick={undo}>Undo</button>
       </div>
     </div>
   );
