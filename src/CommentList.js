@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Comment from './Comment';
 import CommentFormTwo from './CommentFormTwo';
 import { v4 as uuid } from 'uuid';
 
 const CommentList = ({ data }) => {
 
-  
-  const [comments, setComments] = useState([...data ]);
+  const [comments, setComments] = useState([...data]);
+
+  console.log(comments)
 
   const addComment = (comment) => {
     const newComment = { ...comment, id: uuid() };

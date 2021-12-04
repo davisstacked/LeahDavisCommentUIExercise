@@ -27,8 +27,10 @@ const CommentPage = () => {
             console.log(myJson);
             console.log(myJson.restaurant);
             console.log(myJson.comments);
+            myJson.comments.forEach(c => {
+              addUUID(c)
+            })
             setRestaurantData(myJson.restaurant);
-            setCommentData(myJson.comments);
           });
       }
       catch (err) {
@@ -39,7 +41,10 @@ const CommentPage = () => {
     getData();
   }, [])
 
-  // console.log(data);
+    const addUUID = (comment) => {
+      const newComment = { ...comment, id: uuid() };
+      setCommentData((state) => [...state, newComment]);
+    };
  
   return (
     <div>
