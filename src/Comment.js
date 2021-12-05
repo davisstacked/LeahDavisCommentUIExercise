@@ -18,8 +18,7 @@ const Comment = ({ time, message, user, image, id}) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [edit, setEdit] = useState(false);
   const [newMessage, setNewMessage] = useState(message);
-  const [disable, setDisable] = useState(false);
-  
+
   // Conditionally displays the delete, edit, and undo buttons using classNames.
   const editAndDelete = classNames('Comment-popup', {
     hidden: hoveredCommentId !== id,
@@ -33,7 +32,7 @@ const Comment = ({ time, message, user, image, id}) => {
   const commentText = classNames('Comment-comment', {
     hidden: isDeleting,
   });
-  
+
   const showPopup = (id) => {
     setHoveredCommentId(id);
   };
@@ -46,7 +45,7 @@ const Comment = ({ time, message, user, image, id}) => {
 
   const handleDelete = () => {
     setIsDeleting(true);
- 
+
     setTimeout(() => {
       if (isDeletingRef.current) {
         console.log('Inside conditional');
@@ -58,8 +57,8 @@ const Comment = ({ time, message, user, image, id}) => {
   const undo = () => {
     setIsDeleting(false);
   };
- 
-// *************** EDIT **********************
+
+  // *************** EDIT **********************
   const handleUpdate = (e) => {
     e.preventDefault();
     // take new comment and pass up to Context.
@@ -75,17 +74,19 @@ const Comment = ({ time, message, user, image, id}) => {
     setEdit(!edit);
   };
 
+  // Conditionally disable button if user is typing
+  const typing = newMessage.length > 0;
+  const buttonOnOff = classNames('form-button', {
+    formButtonDisabled: !typing,
+    formButtonAbled: typing,
+  });
 
   // Conditionally renders based on Edit state either a form or the comment
   if (edit) {
     return (
       <form className='CommentEditForm form' onSubmit={handleUpdate}>
-        <Avatar
-          alt={user}
-          src={image}
-          sx={{ width: 40, height: 40 }}
-        />
-        <div className="form-container">
+        <Avatar alt={user} src={image} sx={{ width: 40, height: 40 }} />
+        <div className='form-container'>
           <textarea
             className='form-text-area'
             type='text'
@@ -93,9 +94,7 @@ const Comment = ({ time, message, user, image, id}) => {
             name='message'
             onChange={handleChange}
           />
-          <button
-            className='form-button'
-            onClick={handleUpdate}>
+          <button className={buttonOnOff} onClick={handleUpdate}>
             Save comment
           </button>
         </div>
@@ -106,7 +105,7 @@ const Comment = ({ time, message, user, image, id}) => {
       <div onMouseEnter={() => showPopup(id)} className='Comment'>
         <div className={commentText}>
           <Avatar alt={user} src={image} sx={{ width: 40, height: 40 }} />
-  
+
           <div className='Comment-message'>
             <p>
               {user ? user : 'Guest'}∙{moment(time).fromNow()}
@@ -124,7 +123,6 @@ const Comment = ({ time, message, user, image, id}) => {
       </div>
     );
   }
-
 };
 
 export default Comment;

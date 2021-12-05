@@ -9,13 +9,13 @@ const CommentForm = () => {
 
   const { addComment } = useContext(CommentContext);
   const [comment, setComment] = useState({ message: '' });
+
+  // Conditionally disable button if user is typing
   const typing = comment.message.length > 0;
   const buttonOnOff = classNames('form-button', {
     formButtonDisabled: !typing,
     formButtonAbled: typing
   })
-
-  console.log(comment.message.length)
 
   const handleSubmit = (e) => {
     e.preventDefault();
