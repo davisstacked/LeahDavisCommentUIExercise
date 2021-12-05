@@ -15,12 +15,16 @@ const Comment = ({ time, message, user, image, id, key, hidden }) => {
   } = useContext(CommentContext);
 
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // useRef in setTimeout to retrieve current state.
+  // https://medium.com/programming-essentials/how-to-access-the-state-in-settimeout-inside-a-react-function-component-39a9f031c76f
   const isDeletingRef = useRef(isDeleting);
   isDeletingRef.current = isDeleting;
 
   // // Conditionally displays the delete and edit buttons.
   const editAndDelete = classNames('Comment-popup', {
     hidden: hoveredCommentId !== id,
+    hidden: isDeleting === true,
   });
 
   const showUndo = classNames('Comment-undo', {
