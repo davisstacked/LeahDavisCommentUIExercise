@@ -4,9 +4,9 @@ import CommentFormTwo from './CommentFormTwo';
 import useToggle from './hooks/useToggleState';
 
 
-const CommentList = ({ data }) => {
+const CommentList = () => {
 
-  const { renderComments, comments, setComments, prevState, setPrevState, addComment, updateComment, undoDelete, removeComment } = useContext(CommentContext);
+  const { renderComments, comments, addComment } = useContext(CommentContext);
   
   return (
     <div className='CommentList'>
