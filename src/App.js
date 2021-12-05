@@ -1,4 +1,5 @@
 import CommentContextProvider from './context/CommentContextProvider';
+import RestaurantContextProvider from './context/RestaurantContextProvider';
 import CommentPage from './CommentPage';
 
 // import CommentFormTwo from './CommentFormTwo';
@@ -13,11 +14,11 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <CommentList /> */}
-    <CommentContextProvider>
-      <CommentPage />
-    </CommentContextProvider>
-      {/* <MouseOverPopover /> */}
+      <RestaurantContextProvider>
+        <CommentContextProvider>
+          <CommentPage />
+        </CommentContextProvider>
+      </RestaurantContextProvider>
     </div>
   );
 }

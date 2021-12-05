@@ -5,9 +5,9 @@ import { v4 as uuid } from 'uuid';
 
 const CommentContextProvider = ({ children }) => {
 
-  const [restaurantData, setRestaurantData] = useState({});
   const [comments, setComments] = useState([]);
   const [prevState, setPrevState] = useState([]);
+  const [hoveredCommentId, setHoveredCommentId] = useState('');
 
   const addState = (message, setState) => {
     const newComment = { ...message, id: uuid() };
@@ -62,7 +62,19 @@ const CommentContextProvider = ({ children }) => {
   
   return (
     <CommentContext.Provider
-      value={{ renderComments, comments, setComments, prevState, setPrevState, addState, updateComment, undoDelete, removeComment, restaurantData, setRestaurantData }}
+      value={{
+        renderComments,
+        comments,
+        setComments,
+        prevState,
+        setPrevState,
+        addState,
+        updateComment,
+        undoDelete,
+        removeComment,
+        setHoveredCommentId,
+        hoveredCommentId,
+      }}
     >
       {children}
     </CommentContext.Provider>
