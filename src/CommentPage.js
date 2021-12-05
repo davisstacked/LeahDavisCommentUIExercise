@@ -1,9 +1,10 @@
 import React, { useEffect, useContext, useState } from 'react';
 import CommentContext from './context/CommentContext';
+import RestaurantInfo from './RestaurantInfo';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
-
+import './CommentPage.css';
 
 const CommentPage = () => {
 
@@ -12,9 +13,9 @@ const CommentPage = () => {
   const { setComments, addState, comments } = useContext(CommentContext);
   
     useEffect(() => {
-    const getData = async () => {
+    const getData = () => {
       try {
-        await fetch('data.json', {
+        fetch('data.json', {
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
@@ -24,11 +25,12 @@ const CommentPage = () => {
             console.log(response);
             return response.json();
           })
-          .then((myJson) => {
-            console.log(myJson);
-            console.log(myJson.comments);
-            console.log(myJson.restaurant);
-            myJson.comments.forEach((c) => {
+          .then((data) => {
+            console.log(data);
+            console.log(data.comments);
+            console.log(data.restaurant);
+            setRestaurantData(data.restaurant);
+            data.comments.forEach((c) => {
               addState(c, setComments);
             });
           });
@@ -45,6 +47,7 @@ const CommentPage = () => {
  
   return (
     <div className="CommentPage">
+      <RestaurantInfo />
       <CommentForm />
       <CommentList />
     </div>
