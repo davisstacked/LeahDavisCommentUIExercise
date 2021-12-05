@@ -1,8 +1,6 @@
 import CommentContextProvider from './context/CommentContextProvider';
-import RestaurantInfo from './RestaurantInfo';
+// import RestaurantInfo from './RestaurantInfo';
 import CommentPage from './CommentPage';
-
-import './CommentPage.css';
 
 // import CommentFormTwo from './CommentFormTwo';
 // import CommentList from './CommentList';

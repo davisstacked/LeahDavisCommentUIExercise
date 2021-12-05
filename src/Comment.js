@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import CommentContext from './context/CommentContext';
 import Avatar from '@mui/material/Avatar';
 import moment from 'moment';
@@ -6,27 +6,17 @@ import classNames from 'classnames';
 
 import './Comment.css';
 
-const Comment = ({
-  time,
-  message,
-  user,
-  image,
-  remove,
-  // update,
-  // undo,
-  id,
-  key,
-  hidden,
-}) => {
+const Comment = ({ time, message, user, image, id, key, hidden }) => {
   const {
     setHoveredCommentId,
     hoveredCommentId,
     removeComment,
     updateComment,
-    setDeletingCommentId,
   } = useContext(CommentContext);
 
   const [isDeleting, setIsDeleting] = useState(false);
+  const isDeletingRef = useRef(isDeleting);
+  isDeletingRef.current = isDeleting;
 
   // // Conditionally displays the delete and edit buttons.
   const editAndDelete = classNames('Comment-popup', {
@@ -45,23 +35,19 @@ const Comment = ({
     setHoveredCommentId(id);
   };
 
-  // undo method
   const undo = () => {
     setIsDeleting(false);
-    setDeletingCommentId('');
   };
 
   const triggerDelete = () => {
-    setDeletingCommentId(id);
-    // set the state to 'deleting
     setIsDeleting(true);
-    // timeout -- after 5 seconds, sets stated to "hidden"
 
-    // setTimeout(() => {
-    //   // TO RESEARCH: why doesn't setTimeout know the current State?
-    //   // How can it know the current state?
-    //   removeComment();
-    // }, 1000);
+    setTimeout(() => {
+      if (isDeletingRef.current) {
+        console.log('Inside conditional');
+        removeComment(id);
+      }
+    }, 1000);
   };
 
   return (

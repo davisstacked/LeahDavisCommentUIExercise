@@ -7,7 +7,6 @@ const CommentContextProvider = ({ children }) => {
   const [comments, setComments] = useState([]);
   // const [prevState, setPrevState] = useState([]);
   const [hoveredCommentId, setHoveredCommentId] = useState('');
-  const [deletingCommentId, setDeletingCommentId] = useState('');
 
   const addState = (message, setState) => {
     const newComment = { ...message, id: uuid() };
@@ -16,20 +15,14 @@ const CommentContextProvider = ({ children }) => {
 
   console.log(comments);
 
-  const removeComment = () => {
+  const removeComment = (id) => {
     console.log('in removeComment');
-    console.log(deletingCommentId);
+    console.log(id);
     // setPrevState(comments);
-    if (deletingCommentId) {
-      setComments(
-        comments.filter((comment) => comment.id !== deletingCommentId)
-      );
+    if (id) {
+      setComments(comments.filter((comment) => comment.id !== id));
     }
   };
-
-  // const undoDelete = () => {
-  //   setComments(prevState);
-  // };
 
   const updateComment = (id, updatedQuote) => {
     const updatedComments = comments.map((comment) => {
@@ -75,11 +68,9 @@ const CommentContextProvider = ({ children }) => {
         // setPrevState,
         addState,
         updateComment,
-        // undoDelete,
         removeComment,
         setHoveredCommentId,
         hoveredCommentId,
-        setDeletingCommentId,
       }}
     >
       {children}

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const CommentHeader = () => {
+
+const RestaurantInfo = () => {
   return (
     <div>
       <p>Hello World!</p>
@@ -8,4 +9,4 @@ const CommentHeader = () => {
   )
 }
 
-export default CommentHeader;
+export default RestaurantInfo;
