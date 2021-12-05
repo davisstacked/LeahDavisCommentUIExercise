@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import CommentContext from './context/CommentContext';
+import Avatar from '@mui/material/Avatar';
 
 import './CommentForm.css';
 
@@ -20,16 +21,21 @@ const CommentForm = () => {
 
   return (
     <form className='CommentForm' onSubmit={handleSubmit}>
-      <div className="CommentForm-container">
+      <Avatar
+        alt='Eliza Roo'
+        src='./images/Avatar (1).png'
+        sx={{ width: 40, height: 40 }}
+      />
+      <div className='CommentForm-container'>
         <textarea
           className='CommentForm-textarea'
           onChange={handleChange}
           name='message'
           value={comment.message}
           type='text'
-        />       
-    </div>
-      <button className="CommentForm-button">Add Comment</button>
+        />
+      <button className='CommentForm-button'>Add Comment</button>
+      </div>
     </form>
   );
 };
