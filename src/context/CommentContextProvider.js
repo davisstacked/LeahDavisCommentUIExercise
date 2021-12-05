@@ -4,26 +4,32 @@ import Comment from '../Comment';
 import { v4 as uuid } from 'uuid';
 
 const CommentContextProvider = ({ children }) => {
-
   const [comments, setComments] = useState([]);
-  const [prevState, setPrevState] = useState([]);
+  // const [prevState, setPrevState] = useState([]);
   const [hoveredCommentId, setHoveredCommentId] = useState('');
+  const [deletingCommentId, setDeletingCommentId] = useState('');
 
   const addState = (message, setState) => {
     const newComment = { ...message, id: uuid() };
     setState((state) => [...state, newComment]);
   };
-  
+
   console.log(comments);
 
-  const removeComment = (id) => {
-    setPrevState(comments);
-    setComments(comments.filter((comment) => comment.id !== id));
+  const removeComment = () => {
+    console.log('in removeComment');
+    console.log(deletingCommentId);
+    // setPrevState(comments);
+    if (deletingCommentId) {
+      setComments(
+        comments.filter((comment) => comment.id !== deletingCommentId)
+      );
+    }
   };
 
-  const undoDelete = () => {
-    setComments(prevState);
-  };
+  // const undoDelete = () => {
+  //   setComments(prevState);
+  // };
 
   const updateComment = (id, updatedQuote) => {
     const updatedComments = comments.map((comment) => {
@@ -43,13 +49,13 @@ const CommentContextProvider = ({ children }) => {
             <Comment
               // className={`shown-${comment.id}`}
               // hidden={hidden}
-              remove={() => removeComment(comment.id)}
-              undo={undoDelete}
+              // remove={() => removeComment(comment.id)}
+              // undo={undoDelete}
               user={comment.user}
               message={comment.message}
               time={comment.time}
               image={comment.image}
-              update={() => updateComment(comment.id)}
+              // update={() => updateComment(comment.id)}
               key={comment.id}
               id={comment.id}
             />
@@ -59,26 +65,26 @@ const CommentContextProvider = ({ children }) => {
     );
   };
 
-  
   return (
     <CommentContext.Provider
       value={{
         renderComments,
         comments,
         setComments,
-        prevState,
-        setPrevState,
+        // prevState,
+        // setPrevState,
         addState,
         updateComment,
-        undoDelete,
+        // undoDelete,
         removeComment,
         setHoveredCommentId,
         hoveredCommentId,
+        setDeletingCommentId,
       }}
     >
       {children}
     </CommentContext.Provider>
   );
-}
+};
 
 export default CommentContextProvider;
