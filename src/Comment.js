@@ -21,8 +21,7 @@ const Comment = ({ time, message, user, image, id}) => {
 
   // Conditionally displays the delete, edit, and undo buttons using classNames.
   const editAndDelete = classNames('Comment-popup', {
-    hidden: hoveredCommentId !== id,
-    hidden: isDeleting === true,
+    hidden: hoveredCommentId !== id || isDeleting,
   });
 
   const showUndo = classNames('Comment-undo', {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CommentContext from './CommentContext';
 import Comment from '../Comment';
+import moment from 'moment';
 import { v4 as uuid } from 'uuid';
 
 const CommentContextProvider = ({ children }) => {
@@ -8,11 +9,13 @@ const CommentContextProvider = ({ children }) => {
   // const [prevState, setPrevState] = useState([]);
   const [hoveredCommentId, setHoveredCommentId] = useState('');
 
+  // put in Comment Page - pass down thru props. 
   const addComment = (comment) => {
-    const newComment = { ...comment, id: uuid(), date: new Date() };
+    const newComment = { ...comment, id: uuid(), time: moment().format() };
     setComments((state) => [...state, newComment]);
   };
 
+  // put in service folder - commentService could be file
   const addUUID = (comment) => {
     const newComment = { ...comment, id: uuid() };
     setComments((state) => [...state, newComment])
@@ -20,6 +23,7 @@ const CommentContextProvider = ({ children }) => {
 
   console.log(comments);
 
+  // put in CommentPage
   const removeComment = (id) => {
     if (id) {
       setComments(comments.filter((comment) => comment.id !== id));

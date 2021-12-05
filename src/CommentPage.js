@@ -7,12 +7,13 @@ import CommentForm from './CommentForm';
 import './CommentPage.css';
 
 const CommentPage = () => {
-
   const [restaurantData, setRestaurantData] = useState({});
 
   const { addUUID, comments } = useContext(CommentContext);
-  
-    useEffect(() => {
+
+  // just leave useEffect here
+  useEffect(() => {
+    // put this in service
     const getData = () => {
       try {
         fetch('data.json', {
@@ -22,13 +23,9 @@ const CommentPage = () => {
           },
         })
           .then((response) => {
-            console.log(response);
             return response.json();
           })
           .then((data) => {
-            console.log(data);
-            console.log(data.comments);
-            console.log(data.restaurant);
             setRestaurantData(data.restaurant);
             data.comments.forEach((c) => {
               addUUID(c);
@@ -41,12 +38,9 @@ const CommentPage = () => {
 
     getData();
   }, []);
- 
-  console.log(comments);
-  console.log(restaurantData);
- 
+
   return (
-    <div className="CommentPage">
+    <div className='CommentPage'>
       <RestaurantInfo />
       <CommentForm />
       <CommentList />
