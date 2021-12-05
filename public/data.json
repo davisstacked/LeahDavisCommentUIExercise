@@ -35,32 +35,32 @@
   },
   "comments": [{
     "user": "Eliza Roo",
-    "image": "https://img.lovepik.com/element/40157/0104.png_300.png",
+    "image": "./images/Avatar (1).png",
     "message": "Hey team, what do you think of this place? It looks like it meets all of our criteria!",
     "time": "2021-11-28T09:10:00"
   }, {
     "user": "Kevin Lou",
-    "image": "https://banner2.cleanpng.com/20180705/wuf/kisspng-penguin-sans-famille-youtube-video-avatar-5b3deebe622bc3.6521668315307854704021.jpg",
+    "image": "./images/Avatar (2).png",
     "message": "I got food poisoning here once before :(",
     "time": "2021-11-28T11:15:00"
   }, {
     "user": "John Jones",
-    "image": "https://i1.sndcdn.com/avatars-000285008665-hsazky-t500x500.jpg",
+    "image": "./images/Avatar (3).png",
     "message": "I’ve been here before, it’s da bomb!",
     "time": "2021-12-29T12:52:00"
   }, {
     "user": "Jason Andrew",
-    "image": "https://cdn.dribbble.com/users/113499/screenshots/6971887/penguin.png?compress=1&resize=400x300",
+    "image": "./images/Avatar (4).png",
     "message": "I don’t like seafood. Anything else but seafood!",
     "time": "2021-12-01T13:45:00"
   }, {
     "user": "Ethan Hu",
-    "image":"https://static.vecteezy.com/system/resources/previews/003/105/461/non_2x/cute-penguin-cartoon-icon-vector.jpg",
+    "image":"./images/Avatar (5).png",
     "message": "Yum, this place looks great!",
     "time": "2021-12-02T10:33:00"
   }, {
     "user": "Amy Lago",
-    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREMYLswvZdLY__YsQ_vID2B9ce7MZOoGu5wBEpblxIP8R3FfMAo1gYcU23w8y1izsM76I&usqp=CAU",
+    "image":"./images/Avatar (6).png",
     "message": "I love seafood! I can’t wait to try the lobster",
     "time": "2021-12-02T10:35:00"
   }]
