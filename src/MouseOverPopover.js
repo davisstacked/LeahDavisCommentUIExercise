@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Comment from './Comment';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
-export default function MouseOverPopover() {
+const MouseOverPopover = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopoverOpen = (event) => {
@@ -26,7 +25,6 @@ export default function MouseOverPopover() {
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
       >
-        <Comment />
       </Typography>
       <Popover
         id='mouse-over-popover'
@@ -59,3 +57,5 @@ export default function MouseOverPopover() {
     </div>
   );
 }
+
+export default MouseOverPopover;

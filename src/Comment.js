@@ -17,7 +17,7 @@ const Comment = ({ time, message, user, image, remove, update, key, id, undo, hi
       </div>
       <div>
         <button onClick={remove}>Delete</button>
-        <button>Edit</button>
+        <button onClick={update}>Edit</button>
         <button onClick={undo}>Undo</button>
       </div>
     </div>

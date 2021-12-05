@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
+import CommentContext from './context/CommentContext';
 import CommentList from './CommentList';
-import CommentFormTwo from './CommentFormTwo';
-import { v4 as uuid } from 'uuid';
+// import CommentContext from './CommentContext';
+// import CommentFormTwo from './CommentFormTwo';
+
+
 
 const CommentPage = () => {
 
-  const [restaurantData, setRestaurantData] = useState({});
-  const [commentData, setCommentData] = useState([]);
-
-  useEffect(() => {
-
+  const { setRestaurantData, setComments, addState, comments, restaurantData } = useContext(CommentContext);
+  
+    useEffect(() => {
     const getData = async () => {
       try {
-
         await fetch('data.json', {
           headers: {
             'Content-Type': 'application/json',
@@ -25,30 +25,27 @@ const CommentPage = () => {
           })
           .then((myJson) => {
             console.log(myJson);
-            console.log(myJson.restaurant);
-            console.log(myJson.comments);
-            myJson.comments.forEach(c => {
-              addUUID(c)
+            myJson.comments.forEach((c) => {
+              addState(c, setComments);
+            });
+            myJson.restaurant.forEach((r) => {
+              addState(r, setRestaurantData)
             })
-            setRestaurantData(myJson.restaurant);
           });
-      }
-      catch (err) {
+      } catch (err) {
         console.log(err);
       }
     };
 
     getData();
-  }, [])
-
-    const addUUID = (comment) => {
-      const newComment = { ...comment, id: uuid() };
-      setCommentData((state) => [...state, newComment]);
-    };
+  }, []);
+ 
+  console.log(comments);
+  console.log(restaurantData);
  
   return (
     <div>
-      <CommentList data={commentData} />
+      <CommentList />
     </div>
   );
 };
