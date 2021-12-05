@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import CommentContext from './context/CommentContext';
 
-const CommentFormTwo = ({ addComment }) => {
+const CommentFormTwo = () => {
+
+  const { addState, setComments } = useContext(CommentContext);
   const [comment, setComment] = useState({ message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addComment(comment);
+    addState(comment, setComments);
     setComment({ message: '' });
   };
 
