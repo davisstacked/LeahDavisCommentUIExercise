@@ -1,8 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import CommentContext from './context/CommentContext';
 import CommentList from './CommentList';
-// import CommentContext from './CommentContext';
-// import CommentForm from './CommentForm';
+import CommentForm from './CommentForm';
 
 
 
@@ -46,6 +45,7 @@ const CommentPage = () => {
  
   return (
     <div className="CommentPage">
+      <CommentForm />
       <CommentList />
     </div>
   );
