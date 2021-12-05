@@ -10,7 +10,7 @@ const CommentPage = () => {
 
   const [restaurantData, setRestaurantData] = useState({});
 
-  const { setComments, addState, comments } = useContext(CommentContext);
+  const { addUUID, comments } = useContext(CommentContext);
   
     useEffect(() => {
     const getData = () => {
@@ -31,7 +31,7 @@ const CommentPage = () => {
             console.log(data.restaurant);
             setRestaurantData(data.restaurant);
             data.comments.forEach((c) => {
-              addState(c, setComments);
+              addUUID(c);
             });
           });
       } catch (err) {

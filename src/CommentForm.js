@@ -6,12 +6,12 @@ import './CommentForm.css';
 
 const CommentForm = () => {
 
-  const { addState, setComments } = useContext(CommentContext);
+  const { addComment } = useContext(CommentContext);
   const [comment, setComment] = useState({ message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addState(comment, setComments);
+    addComment(comment);
     setComment({ message: '' });
   };
 

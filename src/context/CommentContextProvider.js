@@ -8,30 +8,33 @@ const CommentContextProvider = ({ children }) => {
   // const [prevState, setPrevState] = useState([]);
   const [hoveredCommentId, setHoveredCommentId] = useState('');
 
-  const addState = (message, setState) => {
-    const newComment = { ...message, id: uuid() };
-    setState((state) => [...state, newComment]);
+  const addComment = (comment) => {
+    const newComment = { ...comment, id: uuid(), date: new Date() };
+    setComments((state) => [...state, newComment]);
   };
+
+  const addUUID = (comment) => {
+    const newComment = { ...comment, id: uuid() };
+    setComments((state) => [...state, newComment])
+  }
 
   console.log(comments);
 
   const removeComment = (id) => {
-    console.log('in removeComment');
-    console.log(id);
-    // setPrevState(comments);
     if (id) {
       setComments(comments.filter((comment) => comment.id !== id));
     }
   };
 
-  const updateComment = (id, updatedQuote) => {
-    const updatedComments = comments.map((comment) => {
+  // if it doesnt work look to remove comment message
+  const updateComment = (id, updatedMessage) => {
+    const updatedMessages = comments.map((comment) => {
       if (comment.id === id) {
-        return { ...comment, message: updatedQuote };
+        return { ...comment, message: updatedMessage };
       }
       return comment;
     });
-    setComments(updatedComments);
+    setComments(updatedMessages);
   };
 
   const renderComments = () => {
@@ -40,15 +43,10 @@ const CommentContextProvider = ({ children }) => {
         <li style={{ listStyleType: 'none' }}>
           {comments.map((comment) => (
             <Comment
-              // className={`shown-${comment.id}`}
-              // hidden={hidden}
-              // remove={() => removeComment(comment.id)}
-              // undo={undoDelete}
               user={comment.user}
               message={comment.message}
               time={comment.time}
               image={comment.image}
-              // update={() => updateComment(comment.id)}
               key={comment.id}
               id={comment.id}
             />
@@ -64,9 +62,8 @@ const CommentContextProvider = ({ children }) => {
         renderComments,
         comments,
         setComments,
-        // prevState,
-        // setPrevState,
-        addState,
+        addComment,
+        addUUID,
         updateComment,
         removeComment,
         setHoveredCommentId,
