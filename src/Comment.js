@@ -5,6 +5,7 @@ import moment from 'moment';
 import classNames from 'classnames';
 
 import './Comment.css';
+import './form.css';
 
 const Comment = ({ time, message, user, image, id}) => {
   const {
@@ -50,7 +51,7 @@ const Comment = ({ time, message, user, image, id}) => {
         console.log('Inside conditional');
         removeComment(id);
       }
-    }, 1000);
+    }, 5000);
   };
 
   const undo = () => {
@@ -77,12 +78,27 @@ const Comment = ({ time, message, user, image, id}) => {
   // Conditionally renders based on Edit state either a form or the comment
   if (edit) {
     return (
-      <div className='Comment'>
-        <form className='Comment-edit-form' onSubmit={handleUpdate}>
-          <textarea type='text' value={newMessage} name='message' onChange={handleChange} />
-          <button onClick={handleUpdate}>Save</button>
-        </form>
-      </div>
+      <form className='Comment-edit-form form' onSubmit={handleUpdate}>
+        <Avatar
+          alt={user}
+          src={image}
+          sx={{ width: 40, height: 40 }}
+        />
+        <div className="form-container">
+          <textarea
+            className='form-text-area'
+            type='text'
+            value={newMessage}
+            name='message'
+            onChange={handleChange}
+          />
+          <button
+            className='form-button'
+            onClick={handleUpdate}>
+            Save comment
+          </button>
+        </div>
+      </form>
     );
   } else {
     return (

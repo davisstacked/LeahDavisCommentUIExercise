@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import CommentContext from './context/CommentContext';
 import Avatar from '@mui/material/Avatar';
 
-import './CommentForm.css';
+import './form.css';
 
 const CommentForm = () => {
 
@@ -20,21 +20,21 @@ const CommentForm = () => {
   };
 
   return (
-    <form className='CommentForm' onSubmit={handleSubmit}>
+    <form className='form' onSubmit={handleSubmit}>
       <Avatar
         alt='Eliza Roo'
         src='./images/Avatar (1).png'
-        sx={{ width: 40, height: 40 }}
+        sx={{ width: 48, height: 48 }}
       />
-      <div className='CommentForm-container'>
+      <div className='form-container'>
         <textarea
-          className='CommentForm-textarea'
+          className='form-text-area'
           onChange={handleChange}
           name='message'
           value={comment.message}
           type='text'
         />
-      <button className='CommentForm-button'>Add Comment</button>
+      <button className='form-button'>Add Comment</button>
       </div>
     </form>
   );
