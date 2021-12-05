@@ -18,6 +18,7 @@ const Comment = ({ time, message, user, image, id}) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [edit, setEdit] = useState(false);
   const [newMessage, setNewMessage] = useState(message);
+  const [disable, setDisable] = useState(false);
   
   // Conditionally displays the delete, edit, and undo buttons using classNames.
   const editAndDelete = classNames('Comment-popup', {
@@ -78,7 +79,7 @@ const Comment = ({ time, message, user, image, id}) => {
   // Conditionally renders based on Edit state either a form or the comment
   if (edit) {
     return (
-      <form className='Comment-edit-form form' onSubmit={handleUpdate}>
+      <form className='CommentEditForm form' onSubmit={handleUpdate}>
         <Avatar
           alt={user}
           src={image}

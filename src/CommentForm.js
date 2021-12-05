@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import CommentContext from './context/CommentContext';
 import Avatar from '@mui/material/Avatar';
+import classNames from 'classnames';
 
 import './form.css';
 
@@ -8,6 +9,13 @@ const CommentForm = () => {
 
   const { addComment } = useContext(CommentContext);
   const [comment, setComment] = useState({ message: '' });
+  const typing = comment.message.length > 0;
+  const buttonOnOff = classNames('form-button', {
+    formButtonDisabled: !typing,
+    formButtonAbled: typing
+  })
+
+  console.log(comment.message.length)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,8 +27,16 @@ const CommentForm = () => {
     setComment((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
+  // const handleDisable = (e) => {
+  //   if (comment.message === '' ) {
+  //     setDisable(true);
+  //   } else {
+  //     setDisable(false);
+  //   }
+  // }
+
   return (
-    <form className='form' onSubmit={handleSubmit}>
+    <form className='CommentForm form' onSubmit={handleSubmit}>
       <Avatar
         alt='Eliza Roo'
         src='./images/Avatar (1).png'
@@ -34,7 +50,12 @@ const CommentForm = () => {
           value={comment.message}
           type='text'
         />
-      <button className='form-button'>Add Comment</button>
+        <button
+          disabled={!typing}
+          className={buttonOnOff}
+        >
+          Add Comment
+        </button>
       </div>
     </form>
   );
