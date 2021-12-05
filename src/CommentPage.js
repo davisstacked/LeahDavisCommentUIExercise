@@ -1,14 +1,16 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import CommentContext from './context/CommentContext';
 import CommentList from './CommentList';
 // import CommentContext from './CommentContext';
-// import CommentFormTwo from './CommentFormTwo';
+// import CommentForm from './CommentForm';
 
 
 
 const CommentPage = () => {
 
-  const { setRestaurantData, setComments, addState, comments, restaurantData } = useContext(CommentContext);
+  const [restaurantData, setRestaurantData] = useState({});
+
+  const { setComments, addState, comments } = useContext(CommentContext);
   
     useEffect(() => {
     const getData = async () => {
@@ -25,12 +27,11 @@ const CommentPage = () => {
           })
           .then((myJson) => {
             console.log(myJson);
+            console.log(myJson.comments);
+            console.log(myJson.restaurant);
             myJson.comments.forEach((c) => {
               addState(c, setComments);
             });
-            myJson.restaurant.forEach((r) => {
-              addState(r, setRestaurantData)
-            })
           });
       } catch (err) {
         console.log(err);
@@ -44,7 +45,7 @@ const CommentPage = () => {
   console.log(restaurantData);
  
   return (
-    <div>
+    <div className="CommentPage">
       <CommentList />
     </div>
   );

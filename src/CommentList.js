@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import CommentContext from './context/CommentContext';
-import CommentFormTwo from './CommentFormTwo';
+import CommentForm from './CommentForm';
 import useToggle from './hooks/useToggleState';
 
 
@@ -10,7 +10,7 @@ const CommentList = () => {
   
   return (
     <div className='CommentList'>
-      <CommentFormTwo addComment={addComment} />
+      <CommentForm addComment={addComment} />
       <p>{comments.length} comments</p>
       {renderComments()}
     </div>
