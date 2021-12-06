@@ -18,9 +18,7 @@ const CommentPage = () => {
       setComments((state) => [...state, newComment]);
     };
 
-  // just leave useEffect here
   useEffect(() => {
-    // put this in service
     const getData = () => {
       try {
         fetch('data.json', {
