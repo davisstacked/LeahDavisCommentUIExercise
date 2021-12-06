@@ -8,7 +8,11 @@ const CommentContextProvider = ({ children }) => {
   const [hoveredCommentId, setHoveredCommentId] = useState('');
 
   const addComment = (comment) => {
-    const newComment = { ...comment, id: uuid(), time: moment().format() };
+    const newComment = {
+      ...comment,
+      id: uuid(),
+      time: moment().format(),
+    };
     setComments((state) => [...state, newComment]);
   };
 

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 body {
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -8,6 +10,8 @@ body {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
+  background-color: #E5E5E5;
+  
 }
 
 html {

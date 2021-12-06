@@ -92,7 +92,7 @@ const Comment = ({ time, message, user, image, id}) => {
   if (edit) {
     return (
       <form className='EditForm form' onSubmit={handleUpdate}>
-        <img className="EditForm-avatar"alt={user} src={image} sx={{ width: 40, height: 40 }} />
+        <img className="EditForm-avatar"alt={user} src={image}/>
         <div className='EditForm-container form-container'>
           <textarea
             className='EditForm-text-area form-text-area'
@@ -112,11 +112,15 @@ const Comment = ({ time, message, user, image, id}) => {
       <div className={Comment}
         onMouseEnter={() => showPopup(id)}>
         <div className={commentComment}>
-          <img className='Comment-avatar' alt={user} src={image} />
+        <img               className='Comment-avatar'
+          alt={user}
+          src={image ? image : './images/LeahAvatar.jpeg'} 
+        /> 
+          
 
           <div className='Comment-text'>
             <p className='Comment-username-wrapper'>
-              <span className='Comment-username'>{user ? user : 'Guest'}</span>∙
+              <span className='Comment-username'>{user ? user : 'Leah'}</span>∙
               <span className='Comment-time-posted'>
                 {moment(time).fromNow()}
               </span>

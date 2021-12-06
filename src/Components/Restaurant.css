@@ -1,5 +1,10 @@
 .Restaurant {
   display: flex;
+  justify-content: space-between;
+}
+
+.Restaurant-container {
+  display: flex;
 }
 
 .Restaurant-image {
