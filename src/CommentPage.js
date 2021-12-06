@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import CommentContext from './context/CommentContext';
-import RestaurantInfo from './RestaurantInfo';
+import Restaurant from './Restaurant';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
@@ -9,7 +9,7 @@ import './CommentPage.css';
 const CommentPage = () => {
   const [restaurantData, setRestaurantData] = useState({});
 
-  const { addUUID, comments } = useContext(CommentContext);
+  const { addUUID } = useContext(CommentContext);
 
   // just leave useEffect here
   useEffect(() => {
@@ -41,7 +41,7 @@ const CommentPage = () => {
 
   return (
     <div className='CommentPage'>
-      <RestaurantInfo />
+      <Restaurant data={restaurantData} />
       <CommentForm />
       <CommentList />
     </div>

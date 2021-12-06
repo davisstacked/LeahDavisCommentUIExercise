@@ -1,0 +1,18 @@
+.Restaurant {
+  display: flex;
+}
+
+.Restaurant-image {
+  width: 20rem;
+  height: 14.4rem;
+}
+
+.Restaurant-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Restaurant-reviews {
+  display: flex;
+}
+

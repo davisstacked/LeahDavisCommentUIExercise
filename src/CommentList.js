@@ -1,9 +1,29 @@
 import React, { useContext } from 'react';
 import CommentContext from './context/CommentContext';
+import Comment from './Comment';
 
 const CommentList = () => {
 
-  const { renderComments, comments } = useContext(CommentContext);
+  const { comments } = useContext(CommentContext);
+  
+    const renderComments = () => {
+      return (
+        <ul>
+          <li style={{ listStyleType: 'none' }}>
+            {comments.map((comment) => (
+              <Comment
+                user={comment.user}
+                message={comment.message}
+                time={comment.time}
+                image={comment.image}
+                key={comment.id}
+                id={comment.id}
+              />
+            ))}
+          </li>
+        </ul>
+      );
+    };
   
   return (
     <div className='CommentList'>

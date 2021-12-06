@@ -12,7 +12,6 @@ function App() {
     <div className='App'>
         <CommentContextProvider>
           <CommentPage />
-          {/* <RestaurantInfo /> */}
         </CommentContextProvider>
     </div>
   );
