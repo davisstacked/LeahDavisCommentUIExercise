@@ -7,9 +7,10 @@ import CommentForm from './CommentForm';
 import './CommentPage.css';
 
 const CommentPage = () => {
-  const [restaurantData, setRestaurantData] = useState({});
 
   const { addUUID } = useContext(CommentContext);
+
+  const [restaurantData, setRestaurantData] = useState({});
 
   // just leave useEffect here
   useEffect(() => {

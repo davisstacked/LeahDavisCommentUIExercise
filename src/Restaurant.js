@@ -5,11 +5,11 @@ import './Restaurant.css';
 
 const Restaurant = ({ data }) => {
 
-  const titles = data.categories.map((c) => {
-    return <span>{c.title} </span>
-  });
-
-  console.log(data.categories)
+  
+      // const titles = data.categories.map((c) => {
+      //   return <span>{c.title} </span>
+      // }
+ 
 
   return (
     <div className='Restaurant'>
@@ -37,12 +37,11 @@ const Restaurant = ({ data }) => {
           <div className='Restaurant-reviews'>{data.review_count} reviews</div>
         </div>
         <div className='Restaurant-categories'>
-          {titles} 
+          {/* {titles}  */}
+          Outdoor dining∙Delivery∙Takeout
         </div>
       </div>
-      <div className="Restaurant-price">
-        {data.price}
-      </div>
+      <div className='Restaurant-price'>{data.price}</div>
     </div>
   );
 }

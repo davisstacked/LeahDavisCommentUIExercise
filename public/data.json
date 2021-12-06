@@ -11,7 +11,7 @@
       "latitude": 37.7983818054199,
       "longitude": -122.407821655273
     },
-    "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/6He-NlZrAv2mDV-yg6jW3g/o.jpg",
+    "image_url": "./images/restaurant-image.png",
     "location": {
       "city": "San Francisco",
       "country": "US",

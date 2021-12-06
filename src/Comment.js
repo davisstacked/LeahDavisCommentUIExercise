@@ -84,7 +84,7 @@ const Comment = ({ time, message, user, image, id}) => {
   if (edit) {
     return (
       <form className='CommentEditForm form' onSubmit={handleUpdate}>
-        <Avatar alt={user} src={image} sx={{ width: 40, height: 40 }} />
+          <Avatar alt={user} src={image} sx={{ width: 40, height: 40 }} />
         <div className='form-container'>
           <textarea
             className='form-text-area'
@@ -103,7 +103,10 @@ const Comment = ({ time, message, user, image, id}) => {
     return (
       <div onMouseEnter={() => showPopup(id)} className='Comment'>
         <div className={commentText}>
-          <Avatar alt={user} src={image} sx={{ width: 40, height: 40 }} />
+          <div className="Comment-avatar-wrapper">
+            <Avatar alt={user} src={image} sx={{ width: 40, height: 40 }} />
+            <div className="online-indicator"></div>
+          </div>
 
           <div className='Comment-message'>
             <p>
