@@ -25,9 +25,10 @@
   width: 88rem;
   height: 7.2rem;
   display: flex;
+  cursor: pointer;
   justify-content: space-between;
   border-bottom: 1px solid #E4E7EC;
-  background-color: #FFFFFF;;
+  background-color: #FFFFFF;
 }
 
 .Comment:hover {
@@ -42,7 +43,10 @@
   left: 0rem;
   z-index: 10;
   /* top: 3.2rem; */
-  
+}
+
+.white {
+  background-color: #FFFFFF !important;
 }
 
 .Comment-avatar {
@@ -85,7 +89,8 @@
   margin: 0;
 }
 
-/* Edit and Delete popup with Edit and Delete Buttons */
+
+/* ----------- EDIT AND DELETE POPUP W/ EDIT AND DELETE BUTTONS --------------------- */
 .Comment-popup {
   display: flex;
   margin-right: 2.4rem;
@@ -109,9 +114,45 @@
 
 .button {
   height: 3.6rem;
+  width: 20.9rem;
   width: 3.6rem;
   background-color:#FFFFFF;
   border: none;
+}
+
+/* ----------------- UNDO DELETE BUTTON -----------*/
+
+.Comment-undo {
+  display: flex;
+  justify-content: flex-end;
+  width: 88rem;
+}
+
+.undo-delete-popup {
+  transition:ease-in;
+  transition-duration: 2000ms;
+  display: flex;
+  padding: 0 1.6rem 0 1.6rem;
+  align-items: center;
+  height: 4rem;
+  background: #F6FEF9;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #027A48;
+  margin-right: 2.4rem;
+  position: relative;
+  bottom: 2rem;
+  -webkit-transition:ease-in;
+  -moz-transition:ease-in;
+  -ms-transition:ease-in;
+  -o-transition:ease-in;
+}
+
+.undo-delete-button {
+  border: none;
+  font-weight: 500;
+  background: #F6FEF9;
+  color: #027A48;
 }
 
 /* ------------ EDIT FORM --------------- */

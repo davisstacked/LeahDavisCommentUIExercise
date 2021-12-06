@@ -22,9 +22,14 @@ const Comment = ({ time, message, user, image, id}) => {
   const [newMessage, setNewMessage] = useState(message);
 
   // Conditionally displays the delete, edit, and undo buttons using classNames.
+  const Comment = classNames('Comment', {
+    white: hoveredCommentId === id && isDeleting
+  });
+
   const commentPopup = classNames('Comment-popup', {
     hidden: hoveredCommentId !== id || isDeleting,
   });
+
 
   const commentUndo = classNames('Comment-undo', {
     hidden: !isDeleting,
@@ -104,47 +109,36 @@ const Comment = ({ time, message, user, image, id}) => {
     );
   } else {
     return (
-      <div className='Comment' onMouseEnter={() => showPopup(id)}>
+      <div className={Comment}
+        onMouseEnter={() => showPopup(id)}>
         <div className={commentComment}>
-          <img
-            className='Comment-avatar'
-            alt={user}
-            src={image}
-          />
+          <img className='Comment-avatar' alt={user} src={image} />
 
           <div className='Comment-text'>
-            <p
-              className='Comment-username-wrapper'
-            >
-              <span
-                className='Comment-username' 
-              >{user ? user : 'Guest'}
-              </span>∙
-              <span
-                className='Comment-time-posted'
-              >
+            <p className='Comment-username-wrapper'>
+              <span className='Comment-username'>{user ? user : 'Guest'}</span>∙
+              <span className='Comment-time-posted'>
                 {moment(time).fromNow()}
               </span>
             </p>
-            <p
-              className="Comment-message"
-            >{message}</p>
+            <p className='Comment-message'>{message}</p>
           </div>
         </div>
         <div className={commentPopup}>
-          <button
-            className="button"
-            onClick={toggleForm}>
+          <button className='button' onClick={toggleForm}>
             <EditIcon />
           </button>
-          <button
-            className="button"
-            onClick={handleDelete}>
+          <button className='button' onClick={handleDelete}>
             <DeleteIcon />
           </button>
         </div>
         <div className={commentUndo}>
-          <button onClick={undo}>Undo</button>
+          <div className='undo-delete-popup'>
+            <span>Comment deleted.</span>
+            <button className='undo-delete-button' onClick={undo}>
+              Undo
+            </button>
+          </div>
         </div>
       </div>
     );
