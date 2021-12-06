@@ -78,6 +78,8 @@ One is to store the current state in ` [prevState
 
 - Use Git Rebase to clean up github commits. 
 
+- Create variables for colors in CSS at the top of the page so they can be easily referenced, and color theme of the site can be easily updated.
+
 ## Approach 
 
 #### API calls

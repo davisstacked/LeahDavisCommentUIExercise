@@ -47,6 +47,7 @@
 
 .white {
   background-color: #FFFFFF !important;
+  border: #027A48 2px solid;
 }
 
 .CommentForm-avatar {

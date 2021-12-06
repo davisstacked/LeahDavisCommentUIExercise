@@ -18,7 +18,7 @@ const Comment = ({ time, message, user, image, id}) => {
 
   const [isDeleting, setIsDeleting] = useState(false);
   const [edit, setEdit] = useState(false);
-  const [newMessage, setNewMessage] = useState(message);
+
 
   // classNames - an external library to conditionally render CSS classes.
   // Conditionally displays the delete, edit, and undo buttons using classNames.
@@ -78,6 +78,8 @@ const Comment = ({ time, message, user, image, id}) => {
         image={image}
         id={id}
         user={user}
+        message={message}
+        setEdit={setEdit}
 
       />
     )} else {

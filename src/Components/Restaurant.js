@@ -15,7 +15,12 @@ const Restaurant = ({ data }) => {
         />
         <div className='Restaurant-info-container'>
           <div className='Restaurant-info'>
-            <a href={data.url} className='Restaurant-link'>
+            <a
+              target='_blank'
+              rel='noreferrer noopener'
+              href={data.url}
+              className='Restaurant-link'
+            >
               {data.shortDescription}
             </a>
             <p className='Restaurant-name'>{data.name}</p>
@@ -27,7 +32,9 @@ const Restaurant = ({ data }) => {
               className='Restaurant-star-image'
             />
             <div className='Restaurant-rating'>{data.rating}</div>
-            <div className='Restaurant-reviews'>{data.review_count} reviews</div>
+            <div className='Restaurant-reviews'>
+              {data.review_count} reviews
+            </div>
           </div>
           <div className='Restaurant-categories'>
             Outdoor dining∙Delivery∙Takeout

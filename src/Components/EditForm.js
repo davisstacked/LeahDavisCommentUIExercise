@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import CommentContext from '../context/CommentContext';
 import classNames from 'classnames';
 
 import './form.css';
 import './Comment.css'
 
-const EditForm = ({id, user, image, newMessage, setNewMessage, setEdit }) => {
+const EditForm = ({id, user, image, message, setEdit }) => {
+
+  const [newMessage, setNewMessage] = useState(message);
+  
   const { comments, setComments } = useContext(CommentContext);
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -34,10 +37,16 @@ const EditForm = ({id, user, image, newMessage, setNewMessage, setEdit }) => {
     formButtonDisabled: !typing,
     formButtonAbled: typing,
   });
-  
+
   return (
     <form className='EditForm form' onSubmit={handleUpdate}>
-      <img className='EditForm-avatar' alt={user} src={image} />
+      <img
+        className='EditForm-avatar'
+        alt={user}
+        src={image ?
+          image :
+          './images/LeahsAvatar.png'}
+      />
       <div className='EditForm-container form-container'>
         <textarea
           className='EditForm-text-area form-text-area'
