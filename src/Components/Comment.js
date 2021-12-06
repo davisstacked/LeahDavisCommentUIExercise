@@ -19,34 +19,35 @@ const Comment = ({ time, message, user, image, id}) => {
   const [newMessage, setNewMessage] = useState(message);
 
   // Conditionally displays the delete, edit, and undo buttons using classNames.
-  const editAndDelete = classNames('Comment-popup', {
+  const commentPopup = classNames('Comment-popup', {
     hidden: hoveredCommentId !== id || isDeleting,
   });
 
-  const showUndo = classNames('Comment-undo', {
+  const commentUndo = classNames('Comment-undo', {
     hidden: !isDeleting,
   });
 
-  const commentText = classNames('Comment-comment', {
+  const commentComment = classNames('Comment-comment', {
     hidden: isDeleting,
   });
 
+  // Opens the edit and delete pop-up 
   const showPopup = (id) => {
     setHoveredCommentId(id);
   };
-
+  
   // ************* DELETE AND UNDO ***************
   // useRef in setTimeout to retrieve current state.
   // https://medium.com/programming-essentials/how-to-access-the-state-in-settimeout-inside-a-react-function-component-39a9f031c76f
   const isDeletingRef = useRef(isDeleting);
   isDeletingRef.current = isDeleting;
 
+
   const handleDelete = () => {
     setIsDeleting(true);
 
     setTimeout(() => {
       if (isDeletingRef.current) {
-        console.log('Inside conditional');
         removeComment(id);
       }
     }, 5000);
@@ -74,7 +75,7 @@ const Comment = ({ time, message, user, image, id}) => {
 
   // Conditionally disable button if user is typing
   const typing = newMessage.length > 0;
-  const buttonOnOff = classNames('form-button', {
+  const formButton = classNames('form-button', {
     formButtonDisabled: !typing,
     formButtonAbled: typing,
   });
@@ -92,7 +93,7 @@ const Comment = ({ time, message, user, image, id}) => {
             name='message'
             onChange={handleChange}
           />
-          <button className={buttonOnOff} onClick={handleUpdate}>
+          <button className={formButton} onClick={handleUpdate}>
             Save comment
           </button>
         </div>
@@ -101,7 +102,7 @@ const Comment = ({ time, message, user, image, id}) => {
   } else {
     return (
       <div onMouseEnter={() => showPopup(id)} className='Comment'>
-        <div className={commentText}>
+        <div className={commentComment}>
             <img
               className="Comment-avatar"
               alt={user}
@@ -116,11 +117,11 @@ const Comment = ({ time, message, user, image, id}) => {
             <p>{message}</p>
           </div>
         </div>
-        <div className={editAndDelete}>
+        <div className={commentPopup}>
           <button onClick={handleDelete}>Delete</button>
           <button onClick={toggleForm}>Edit</button>
         </div>
-        <div className={showUndo}>
+        <div className={commentUndo}>
           <button onClick={undo}>Undo</button>
         </div>
       </div>
