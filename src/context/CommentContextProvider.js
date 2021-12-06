@@ -28,16 +28,6 @@ const CommentContextProvider = ({ children }) => {
     }
   };
 
-  const updateComment = (id, updatedMessage) => {
-    const updatedMessages = comments.map((comment) => {
-      if (comment.id === id) {
-        return { ...comment, message: updatedMessage };
-      }
-      return comment;
-    });
-    setComments(updatedMessages);
-  };
-
   return (
     <CommentContext.Provider
       value={{
@@ -45,7 +35,6 @@ const CommentContextProvider = ({ children }) => {
         setComments,
         addComment,
         addUUID,
-        updateComment,
         removeComment,
         setHoveredCommentId,
         hoveredCommentId,

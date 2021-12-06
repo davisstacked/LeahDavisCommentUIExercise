@@ -1,11 +1,10 @@
 import React, { useContext, useState, useRef } from 'react';
-import Avatar from '@mui/material/Avatar';
+import EditForm from './EditForm';
 import CommentContext from '../context/CommentContext';
 import EditIcon from '../assets/EditIcon';
 import DeleteIcon from '../assets/DeleteIcon';
 import moment from 'moment';
 import classNames from 'classnames';
-
 
 import './Comment.css';
 import './form.css';
@@ -15,14 +14,16 @@ const Comment = ({ time, message, user, image, id}) => {
     setHoveredCommentId,
     hoveredCommentId,
     removeComment,
-    updateComment,
   } = useContext(CommentContext);
 
   const [isDeleting, setIsDeleting] = useState(false);
   const [edit, setEdit] = useState(false);
   const [newMessage, setNewMessage] = useState(message);
 
+  // classNames - an external library to conditionally render CSS classes.
   // Conditionally displays the delete, edit, and undo buttons using classNames.
+
+  //While 
   const Comment = classNames('Comment', {
     white: hoveredCommentId === id && isDeleting
   });
@@ -66,49 +67,20 @@ const Comment = ({ time, message, user, image, id}) => {
     setIsDeleting(false);
   };
 
-  // *************** EDIT **********************
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    // take new comment and pass up to Context.
-    updateComment(id, newMessage);
-    setEdit(false);
-  };
-
-  const handleChange = (e) => {
-    setNewMessage(e.target.value);
-  };
-
   const toggleForm = () => {
     setEdit(!edit);
   };
 
-  // Conditionally disable button if user is typing
-  const typing = newMessage.length > 0;
-  const formButton = classNames('form-button', {
-    formButtonDisabled: !typing,
-    formButtonAbled: typing,
-  });
-
   // Conditionally renders based on Edit state either a form or the comment
   if (edit) {
     return (
-      <form className='EditForm form' onSubmit={handleUpdate}>
-        <img className="EditForm-avatar"alt={user} src={image}/>
-        <div className='EditForm-container form-container'>
-          <textarea
-            className='EditForm-text-area form-text-area'
-            type='text'
-            value={newMessage}
-            name='message'
-            onChange={handleChange}
-          />
-          <button className={formButton} onClick={handleUpdate}>
-            Save comment
-          </button>
-        </div>
-      </form>
-    );
-  } else {
+      <EditForm
+        image={image}
+        id={id}
+        user={user}
+
+      />
+    )} else {
     return (
       <div className={Comment} onMouseEnter={() => showPopup(id)}>
         <div className={commentComment}>

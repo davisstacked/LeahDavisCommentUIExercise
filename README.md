@@ -1,4 +1,4 @@
-# CommentUI Exercise
+## CommentUI Exercise
 
 The deployed version of the game can be found below. 
 
@@ -65,6 +65,18 @@ To make the form responsive I set the font-size to 10px in order to easily use t
 <!-- should be moved to the asset file called comment.css -->
 Comment.css holds the CSS for CommentList, Comment, and Comment form because React will create an element in one Component but display it in another.
 
+I wanted to show my understanding of both context and props. 
+
+Creating 
+
+Next steps:
+
+- maybe switch the - i was undecided between two solutions for the delete and undo buttons. 
+
+One is to store the current state in ` [prevState
+- Organize the CSS - Move the Edit and Form components
+
+- Use Git Rebase to clean up github commits. 
 
 ## Approach 
 
