@@ -49,14 +49,16 @@
   background-color: #FFFFFF !important;
 }
 
+.CommentForm-avatar {
+  margin-right: 12px;
+}
+
 .Comment-avatar {
   margin-right: 1.2rem;
   padding-top: 16px;
-  height: 4rem;
-  width: 4rem;
+  height: 40px;
+  width: 40px;
   border-radius: 2.8rem;
-  overflow: hidden;
-  z-index: 8;
   -webkit-border-radius: 2.8rem;
   -moz-border-radius: 2.8rem;
   -ms-border-radius: 2.8rem;

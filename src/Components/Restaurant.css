@@ -1,6 +1,15 @@
 .Restaurant {
   display: flex;
   justify-content: space-between;
+  padding: 1.6rem 2.4rem;
+}
+
+.Restaurant-name {
+  margin: .4rem 0;
+  font-weight: 500;
+  color:#101828;
+  line-height: 28px;
+  font-size: 1.8rem;
 }
 
 .Restaurant-container {
@@ -14,10 +23,53 @@
 
 .Restaurant-info-container {
   display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
   flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1.2rem;
+}
+
+.Restaurant-link {
+  font-weight: 600;
+  line-height: 2rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.Restaurant-review-container {
+  display: flex;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.Restaurant-star-image {
+  height: 2rem;
+  width: 2rem;
+}
+
+.Restaurant-rating {
+  font-weight: 500;
+  margin-left: .8rem;
+  margin-right:.8rem;
 }
 
 .Restaurant-reviews {
   display: flex;
+  color: #667085;
 }
 
+.Restaurant-categories {
+  color: #667085;
+  font-size: 1.4rem; 
+}
+
+.Restaurant-price {
+  align-self: flex-end;
+  color: #101828;
+  font-size: 2rem;
+  width: 3.9rem;
+  height: 3rem;
+  line-height: 3rem;
+  font-weight: 500;
+}

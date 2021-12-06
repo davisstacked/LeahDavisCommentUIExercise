@@ -26,7 +26,7 @@ const Restaurant = ({ data }) => {
             </a>
             <p className='Restaurant-name'>{data.name}</p>
           </div>
-          <div className='Restaurant-reviews'>
+          <div className='Restaurant-review-container'>
             <img
               src='./images/Star.png'
               alt='star for ratings'

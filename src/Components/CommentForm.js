@@ -18,6 +18,10 @@ const CommentForm = () => {
     formButtonAbled: typing
   })
 
+  const formTextArea = classNames('form-text-area', {
+    formTyping: typing
+  })
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addComment(comment);
@@ -31,24 +35,21 @@ const CommentForm = () => {
   return (
     <form className='CommentForm form' onSubmit={handleSubmit}>
       <Avatar
-        className="Comment-avatar"
-        alt='Eliza Roo'
-        src='./images/Avatar (1).png'
+        className='CommentForm-avatar'
+        alt='Leah'
+        src='./images/LeahAvatar.jpeg'
         sx={{ width: 48, height: 48 }}
       />
       <div className='form-container'>
         <textarea
-          className='form-text-area'
-          placeholder="Comment"
+          className={formTextArea}
+          placeholder='Comment'
           onChange={handleChange}
           name='message'
           value={comment.message}
           type='text'
         />
-        <button
-          disabled={!typing}
-          className={buttonOnOff}
-        >
+        <button disabled={!typing} className={buttonOnOff}>
           Add Comment
         </button>
       </div>

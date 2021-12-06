@@ -1,4 +1,5 @@
 import React, { useContext, useState, useRef } from 'react';
+import Avatar from '@mui/material/Avatar';
 import CommentContext from '../context/CommentContext';
 import EditIcon from '../assets/EditIcon';
 import DeleteIcon from '../assets/DeleteIcon';
@@ -109,14 +110,14 @@ const Comment = ({ time, message, user, image, id}) => {
     );
   } else {
     return (
-      <div className={Comment}
-        onMouseEnter={() => showPopup(id)}>
+      <div className={Comment} onMouseEnter={() => showPopup(id)}>
         <div className={commentComment}>
-        <img               className='Comment-avatar'
-          alt={user}
-          src={image ? image : './images/LeahAvatar.jpeg'} 
-        /> 
-          
+          <img
+            className='Comment-avatar'
+            alt={user}
+            src={image ? image : './images/LeahAvatar.jpeg'}
+            sx={{ width: 40, height: 40}}
+          />
 
           <div className='Comment-text'>
             <p className='Comment-username-wrapper'>
