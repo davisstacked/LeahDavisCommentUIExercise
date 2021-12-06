@@ -86,11 +86,11 @@ const Comment = ({ time, message, user, image, id}) => {
   // Conditionally renders based on Edit state either a form or the comment
   if (edit) {
     return (
-      <form className='CommentEditForm form' onSubmit={handleUpdate}>
-        <img className="Comment-avatar"alt={user} src={image} sx={{ width: 40, height: 40 }} />
-        <div className='form-container'>
+      <form className='EditForm form' onSubmit={handleUpdate}>
+        <img className="EditForm-avatar"alt={user} src={image} sx={{ width: 40, height: 40 }} />
+        <div className='EditForm-container form-container'>
           <textarea
-            className='form-text-area'
+            className='EditForm-text-area form-text-area'
             type='text'
             value={newMessage}
             name='message'

@@ -17,7 +17,7 @@
 
 /*  Comment-list is an <li> and the Parent of the Comment Component. */
 .Comment-list {
-
+  height: 15.2;
 }
 
 /* Parent of the avatar and message text */
@@ -114,13 +114,27 @@
   border: none;
 }
 
+/* ------------ EDIT FORM --------------- */
 
-.Editform-avatar {
-  margin: 0 1.2rem 0 0;
-  height: 4.8rem;
-  width: 4.8rem;
+.EditForm {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  border-bottom: 1px solid #E4E7EC;
+  height: 15.2rem;
+}
+
+.EditForm-container {
+  margin-top: 1.6rem;
+}
+
+.EditForm-avatar {
+  /* margin: 0 1.2rem 0 0; */
+  margin-top: 1.6rem;
+  margin-right: 1.6rem;
+  height: 4rem;
+  width: 4rem;
   border-radius: 20rem;
-  padding: .8rem;
   -webkit-border-radius: 20rem;
   -moz-border-radius: 20rem;
   -ms-border-radius: 20rem;
