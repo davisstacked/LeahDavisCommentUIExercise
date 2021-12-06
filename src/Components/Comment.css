@@ -25,7 +25,13 @@
   width: 88rem;
   height: 7.2rem;
   display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #E4E7EC;
+  background-color: #FFFFFF;;
+}
+
+.Comment:hover {
+  background-color: #F9FAFB;
 }
 
 /* The entire comment (avatar + message text */
@@ -79,12 +85,42 @@
   margin: 0;
 }
 
+/* Edit and Delete popup with Edit and Delete Buttons */
+.Comment-popup {
+  display: flex;
+  margin-right: 2.4rem;
+  position: relative;
+  bottom: 2.5rem;
+  height: 3.6rem;
+  width: 7.2rem;
+  box-shadow: 0px 4px 6px -2px #1018280D;
+  box-shadow: 0px 12px 16px -4px #1018281A;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  padding: .8rem;
+  background-color:#FFFFFF;
+  border-radius: .8rem;
+  -webkit-border-radius: .8rem;
+  -moz-border-radius: .8rem;
+  -ms-border-radius: .8rem;
+  -o-border-radius: .8rem;
+}
+
+.button {
+  height: 3.6rem;
+  width: 3.6rem;
+  background-color:#FFFFFF;
+  border: none;
+}
+
 
 .Editform-avatar {
   margin: 0 1.2rem 0 0;
   height: 4.8rem;
   width: 4.8rem;
   border-radius: 20rem;
+  padding: .8rem;
   -webkit-border-radius: 20rem;
   -moz-border-radius: 20rem;
   -ms-border-radius: 20rem;

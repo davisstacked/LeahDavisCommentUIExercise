@@ -132,11 +132,15 @@ const Comment = ({ time, message, user, image, id}) => {
           </div>
         </div>
         <div className={commentPopup}>
-          <button onClick={handleDelete}>
-            <DeleteIcon />
-          </button>
-          <button onClick={toggleForm}>
+          <button
+            className="button"
+            onClick={toggleForm}>
             <EditIcon />
+          </button>
+          <button
+            className="button"
+            onClick={handleDelete}>
+            <DeleteIcon />
           </button>
         </div>
         <div className={commentUndo}>
