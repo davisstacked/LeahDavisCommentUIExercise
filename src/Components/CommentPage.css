@@ -1,0 +1,9 @@
+.CommentPage {
+  width: 88rem;
+  /* padding-top: 1.6rem; */
+  border-top: 1px solid #E4E7EC;
+  border-right: 1px solid #E4E7EC;
+  border-left: 1px solid #E4E7EC;
+  background-color: #FFFFFF;
+  overflow: scroll;
+}
