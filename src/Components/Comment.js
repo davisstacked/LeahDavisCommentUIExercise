@@ -101,9 +101,7 @@ const Comment = ({ time, message, user, image, id}) => {
     );
   } else {
     return (
-      <div
-        className='Comment'
-        onMouseEnter={() => showPopup(id)}>
+      <div className='Comment' onMouseEnter={() => showPopup(id)}>
         <div className={commentComment}>
           <img
             className='Comment-avatar'
@@ -114,7 +112,15 @@ const Comment = ({ time, message, user, image, id}) => {
 
           <div className='Comment-text'>
             <p>
-              {user ? user : 'Guest'}∙{moment(time).fromNow()}
+              <span
+                className='Comment-username' 
+              >{user ? user : 'Guest'}
+              </span>∙
+              <span
+                className='Comment-time-posted'
+              >
+                {moment(time).fromNow()}
+              </span>
             </p>
             <p>{message}</p>
           </div>

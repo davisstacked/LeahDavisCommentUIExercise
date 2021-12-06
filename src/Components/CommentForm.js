@@ -39,6 +39,7 @@ const CommentForm = () => {
       <div className='form-container'>
         <textarea
           className='form-text-area'
+          placeholder="Comment"
           onChange={handleChange}
           name='message'
           value={comment.message}

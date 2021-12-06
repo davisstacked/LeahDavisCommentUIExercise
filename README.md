@@ -61,8 +61,9 @@ How I handled disabling the button? maybe.
 <!-- index.css -->
 To make the form responsive I set the font-size to 10px in order to easily use the rem unit. 
 
-
-
+<!-- Comment.css -->
+<!-- should be moved to the asset file called comment.css -->
+Comment.css holds the CSS for CommentList, Comment, and Comment form because React will create an element in one Component but display it in another.
 
 
 ## Approach 

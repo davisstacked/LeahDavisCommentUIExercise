@@ -32,7 +32,7 @@ const CommentList = () => {
   
   return (
     <div className='Commentlist'>
-      <p>{comments.length} comments</p>
+      <p className='Commentlist-comment-number'>{comments.length} comments</p>
       {renderComments()}
     </div>
   );

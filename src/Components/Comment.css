@@ -1,6 +1,13 @@
 /* Commentlist is the entire comment section*/
 .CommentList {
+  background-color: #E5E5E5;
+}
 
+.Commentlist-comment-number {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #101828;
 }
 
 /*  Comment-list is an <li> and the Parent of the Comment Component. */
@@ -12,19 +19,31 @@
 .Comment {
   width: 88rem;
   height: 7.2rem;
-
+  border-bottom: 1px solid #E4E7EC;
 }
 
 /* The entire comment (avatar + message text */
 .Comment-comment {
+  margin-left: 2.4rem; 
   display: flex;
   left: 0rem;
   top: 3.2rem;
+  
 }
 
 /* parent of the message text */
 .Comment-text {
+  color: #101828;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
 
+.Comment-username {
+  font-weight: 500;
+}
+
+.Comment-time-posted {
+  color: #667085;
 }
 
 .Comment-avatar {
