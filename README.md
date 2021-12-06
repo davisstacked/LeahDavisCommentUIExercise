@@ -1,8 +1,8 @@
 ### CommentUI Exercise
 
-## SCRIPTS
-# NOTE ON START 
-I've recently (Dec 2021) updated Node.js to v17.0.1 so to run CRA, I needed to update the package.json `start` and `build` scripts to: 
+### Scripts
+#### NOTE ON START AND BUILD SCRIPTS
+I recently (Dec 2021) updated Node.js to v17.0.1 so to run Create React App, I needed to update the package.json `start` and `build` scripts to: 
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
@@ -10,7 +10,7 @@ I've recently (Dec 2021) updated Node.js to v17.0.1 so to run CRA, I needed to u
 
 [Stackoverflow](https://stackoverflow.com/questions/69665222/node-17-0-1-causes-some-error-digital-envelope-routinesunsupported)
 
-If you're having problems starting the project, replace with the following:
+If you're having problems starting the project, in `package.json` replace with the following:
 
   "scripts": {
     "start": "react-scripts start",
@@ -29,26 +29,17 @@ If you're having problems starting the project, replace with the following:
 ### USER STORIES 
 #### Overview
 
-`CommentUI Exercise` is a single-page React app for viewing restaurant information, their ratings and comments. 
+`CommentUI Exercise` is a single-page React app for viewing restaurant information and restaurant ratings as well as user comments. 
 
-User's can add their own Restaurant reviews using the `CommentForm`. Their `Comment` will be added to the end of the list of comments along with their username and image.
+User's can add their own restaurant reviews using the `CommentForm`. Their `Comment` will be added to the end of the `CommentList` of comments along with their username, image and the time the comment was created.
 
-When a `Comment` is hovered over, a popup appears with Delete and Edit buttons. 
+###### Delete and Edit Buttons
 
-When the user clicks on the Edit icon, the `EditForm` is displayed in place of their comment. The text of their previous comment displays in the text field. The user can edit this comment and save their updated comment. 
+When a `Comment` is hovered over, a popup appears with Delete and Edit button icons. 
 
-When the user hover's over a comment, a popup appears with DELETE AND EDIT icons. 
+When the user clicks on the `EditIcon`, the `EditForm` is displayed in place of their comment. The text of their previous comment displays in the text field, and the user can edit this and save their updated comment. 
 
-
-
-###### Delete and Edit
-
-
-Two options were considered for implementation:
-
-1. Create a new state prevState, Store the current comments in a new state, then delete the
-
-2. On Delete, use setTimeout to hide the comment for 5 seconds by toggling state to isDeleting. If the user clicks the undo button during that time, then state toggles back.  
+When a user clicks the `DeleteIcon`, their comment disappears and a Delete Confirmation popup appears in its place with a five second window where users can Undo their delete.  
 
 ## TECHNOLOGY
 
@@ -70,40 +61,22 @@ In `<html>` in `Index.css`, I set the font-size to 10px in order to set one Rem 
 
 With only few other code modifications necessary, the `CommentPage` is already responsive by simply changing the value of **font-size** in `<html>` inside of a media query.
 
-<!-- Comment.css -->
-<!-- should be moved to the asset file called comment.css -->
-Comment.css holds the CSS for CommentList, Comment, and Comment form because React will create an element in one Component but display it in another.
-
-I wanted to show my understanding of both context and props. 
-
-- maybe switch the - i was undecided between two solutions for the delete and undo buttons. 
-
-One is to store the current state in ` [prevState
-- Organize the CSS - Move the Edit and Form components
-
-
 #### State management
 * I managed state that was needed by many components throughout the app using `CommentContextProvider` and `CommentContext` in juncture with React Hooks **useRef** **useState** and **useEffect**. 
 
 I also passed props in many `Components` when the function or state was only needed by one or two levels of the component tree. Specificially `EditForm` `Comment` and `CommentList` use comments. 
 
-######
+#### fetching dada
+* handled in `CommentPage` with a try catch statement.
 
-I heavily utilized State management 
+### A Short Reflection
+##### GREAT STUFF
 
-#### API calls
-* handled in `src/API/UnicornAPI.js`, which includes a static API class tying together all methods used to communicate with API
-* prevents code duplication and separates concerns
+I'm most proud of the **delete** and **edit** buttons that appear when the `Comment` is hovered over, as well as the delete button triggering a Delete Confirmation popup in its place with a five second window to reverse the delete using the **undo** button.
 
-###### A Short Reflection
+I had a couple ideas of how to achieve this:
 
-
-
-#### GREAT STUFF
-
-I'm most proud of the delete and edit buttons that appear when the 
-#### LIMITATIONS
-##### Next Steps:
+##### NEXT STEPS:
 
 - Create an `ErrorMessage` component that will render an error message for the user if there is a problem fetching and loading data.
 
