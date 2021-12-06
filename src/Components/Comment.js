@@ -107,11 +107,12 @@ const Comment = ({ time, message, user, image, id}) => {
             className='Comment-avatar'
             alt={user}
             src={image}
-            sx={{ width: 40, height: 40 }}
           />
 
           <div className='Comment-text'>
-            <p>
+            <p
+              className='Comment-username-wrapper'
+            >
               <span
                 className='Comment-username' 
               >{user ? user : 'Guest'}
@@ -122,7 +123,9 @@ const Comment = ({ time, message, user, image, id}) => {
                 {moment(time).fromNow()}
               </span>
             </p>
-            <p>{message}</p>
+            <p
+              className="Comment-message"
+            >{message}</p>
           </div>
         </div>
         <div className={commentPopup}>

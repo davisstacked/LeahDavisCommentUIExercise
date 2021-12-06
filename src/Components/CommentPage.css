@@ -1,5 +1,7 @@
 .CommentPage {
   width: 88rem;
-  padding: 1.6rem 0 5rem 0;
-  border: 1px solid #E4E7EC;
+  padding-top: 1.6rem;
+  border-top: 1px solid #E4E7EC;
+  border-right: 1px solid #E4E7EC;
+  border-left: 1px solid #E4E7EC;
 }
