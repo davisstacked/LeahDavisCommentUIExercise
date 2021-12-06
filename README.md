@@ -1,27 +1,26 @@
-# Note on start
-I've recently updated Node.js to v17.0.1 so to run CRA, I needed to update the package.json `start` and `build` scripts to: 
+# CommentUI Exercise
+
+The deployed version of the game can be found below. 
+
+➡️ [Unicorn Escape](https://unicornmaze.netlify.app/)
+
+## SCRIPTS
+# NOTE ON START 
+I've recently (Dec 2021) updated Node.js to v17.0.1 so to run CRA, I needed to update the package.json `start` and `build` scripts to: 
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     }
 
-[https://stackoverflow.com/questions/69665222/node-17-0-1-causes-some-error-digital-envelope-routinesunsupported]
+[Stackoverflow](https://stackoverflow.com/questions/69665222/node-17-0-1-causes-some-error-digital-envelope-routinesunsupported)
 
-If you're having problems starting the project, please replace with the following:
+If you're having problems starting the project, replace with the following:
 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
   },
 
-
-# UNICORN MAZE 🦄🦄🦄
-
-The deployed version of the game can be found below. 
-
-➡️ [Unicorn Escape](https://unicornmaze.netlify.app/)
-
-## Scripts
 
 `npm install` to install dependencies 
 
@@ -31,7 +30,19 @@ The deployed version of the game can be found below.
 
 `npm run build` to build app for production in the `build` folder
 
-## Technology
+# USER STORIES 
+When the user hover's over a comment, a popup appears with DELETE AND EDIT icons. 
+
+
+
+DELETE and UNDO buttons:  
+
+
+Two options were considered for implementation:
+
+1. Create a new state prevState, Store the current comments in a new state, then delete the 
+
+## TECHNOLOGY
 
 **Language**: JavaScript  
 **Tools**:   
@@ -42,6 +53,15 @@ The deployed version of the game can be found below.
 |**Create-React-App**|to bootstrap React setup and initial folder structure|
 |**uuid**|to assign children unique key props|
 |**classnames**|to conditionally render classes|
+
+## Approach 
+
+
+
+
+
+
+
 
 
 
@@ -73,7 +93,7 @@ The deployed version of the game can be found below.
 #### Use of external libraries
 I tried to balance the recommended approach of "not reinventing the wheel" with demonstrating my capability to write code independendly. Whilst I leant heavily into external resources to handle movement and sound, I chose to refrain from using an external library and instead demonstrate original code writing in other places, for example in the `Form` component.
 
-Format time: [Moment](https://momentjs.com/)
+
 
 ## Resources
 
