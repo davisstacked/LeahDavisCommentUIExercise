@@ -4,6 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import classNames from 'classnames';
 
 import './form.css';
+import './Comment.css'
 
 const CommentForm = () => {
 
@@ -30,6 +31,7 @@ const CommentForm = () => {
   return (
     <form className='CommentForm form' onSubmit={handleSubmit}>
       <Avatar
+        className="Comment-avatar"
         alt='Eliza Roo'
         src='./images/Avatar (1).png'
         sx={{ width: 48, height: 48 }}

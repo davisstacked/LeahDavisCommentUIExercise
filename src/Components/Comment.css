@@ -1,12 +1,25 @@
+/* Commentlist is the entire comment section*/
+.CommentList {
+
+}
+
+/*  Comment-list is an <li> and the Parent of the Comment Component. */
+.Comment-list {
+  position: relative;
+}
+
+/* Parent of the avatar and message text */
 .Comment {
   width: 88rem;
-
+  height: 7.2rem;
 
 }
 
 /* The entire comment (avatar + message text */
 .Comment-comment {
   display: flex;
+  left: 0rem;
+  top: 3.2rem;
 }
 
 /* parent of the message text */
@@ -15,6 +28,7 @@
 }
 
 .Comment-avatar {
+  margin: 0 1.2rem 1.6rem 0;
   height: 4rem;
   width: 4rem;
   border-radius: 2.8rem;
@@ -24,10 +38,18 @@
   -o-border-radius: 2.8rem;
 }
 
-.EditForm-avatar {
+.Editform-avatar {
+  margin: 0 1.2rem 0 0;
   height: 4.8rem;
   width: 4.8rem;
+  border-radius: 20rem;
+  -webkit-border-radius: 20rem;
+  -moz-border-radius: 20rem;
+  -ms-border-radius: 20rem;
+  -o-border-radius: 20rem;
 }
+
+
 
 .hidden {
   display: none;

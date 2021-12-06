@@ -58,8 +58,8 @@ Two options were considered for implementation:
 
 How I handled disabling the button? maybe. 
 
-
-
+<!-- index.css -->
+To make the form responsive I set the font-size to 10px in order to easily use the rem unit. 
 
 
 

@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import CommentContext from '../context/CommentContext';
 import Comment from './Comment';
 
+import './Comment.css'
+
 const CommentList = () => {
 
   const { comments } = useContext(CommentContext);
@@ -9,7 +11,9 @@ const CommentList = () => {
     const renderComments = () => {
       return (
         <ul>
-          <li style={{ listStyleType: 'none' }}>
+          <li
+            className='Comment-list'
+            style={{ listStyleType: 'none' }}>
             {comments.map((comment) => (
               <Comment
                 className="single-comment"
@@ -27,7 +31,7 @@ const CommentList = () => {
     };
   
   return (
-    <div className='CommentList'>
+    <div className='Commentlist'>
       <p>{comments.length} comments</p>
       {renderComments()}
     </div>

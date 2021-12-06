@@ -84,7 +84,7 @@ const Comment = ({ time, message, user, image, id}) => {
   if (edit) {
     return (
       <form className='CommentEditForm form' onSubmit={handleUpdate}>
-        <img className="EditForm-avatar"alt={user} src={image} sx={{ width: 40, height: 40 }} />
+        <img className="Comment-avatar"alt={user} src={image} sx={{ width: 40, height: 40 }} />
         <div className='form-container'>
           <textarea
             className='form-text-area'
