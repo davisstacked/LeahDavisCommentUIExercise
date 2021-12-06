@@ -16,12 +16,6 @@ const CommentContextProvider = ({ children }) => {
     setComments((state) => [...state, newComment]);
   };
 
-  // put in service folder - commentService could be file
-  const addUUID = (comment) => {
-    const newComment = { ...comment, id: uuid() };
-    setComments((state) => [...state, newComment])
-  }
-
   const removeComment = (id) => {
     if (id) {
       setComments(comments.filter((comment) => comment.id !== id));
@@ -34,7 +28,6 @@ const CommentContextProvider = ({ children }) => {
         comments,
         setComments,
         addComment,
-        addUUID,
         removeComment,
         setHoveredCommentId,
         hoveredCommentId,

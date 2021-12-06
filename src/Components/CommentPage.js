@@ -3,14 +3,20 @@ import CommentContext from '../context/CommentContext';
 import Restaurant from './Restaurant';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
+import { v4 as uuid } from 'uuid';
 
 import './CommentPage.css';
 
 const CommentPage = () => {
 
-  const { addUUID } = useContext(CommentContext);
+  const { setComments } = useContext(CommentContext)
 
   const [restaurantData, setRestaurantData] = useState({});
+
+    const addUUID = (comment) => {
+      const newComment = { ...comment, id: uuid() };
+      setComments((state) => [...state, newComment]);
+    };
 
   // just leave useEffect here
   useEffect(() => {

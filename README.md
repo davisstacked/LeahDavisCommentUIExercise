@@ -1,8 +1,4 @@
-## CommentUI Exercise
-
-The deployed version of the game can be found below. 
-
-➡️ [Unicorn Escape](https://unicornmaze.netlify.app/)
+### CommentUI Exercise
 
 ## SCRIPTS
 # NOTE ON START 
@@ -30,17 +26,29 @@ If you're having problems starting the project, replace with the following:
 
 `npm run build` to build app for production in the `build` folder
 
-# USER STORIES 
+### USER STORIES 
+#### Overview
+
+`CommentUI Exercise` is a single-page React app for viewing restaurant information, their ratings and comments. 
+
+User's can add their own Restaurant reviews using the `CommentForm`. Their `Comment` will be added to the end of the list of comments along with their username and image.
+
+When a `Comment` is hovered over, a popup appears with Delete and Edit buttons. 
+
+When the user clicks on the Edit icon, the `EditForm` is displayed in place of their comment. The text of their previous comment displays in the text field. The user can edit this comment and save their updated comment. 
+
 When the user hover's over a comment, a popup appears with DELETE AND EDIT icons. 
 
 
 
-DELETE and UNDO buttons:  
+###### Delete and Edit
 
 
 Two options were considered for implementation:
 
-1. Create a new state prevState, Store the current comments in a new state, then delete the 
+1. Create a new state prevState, Store the current comments in a new state, then delete the
+
+2. On Delete, use setTimeout to hide the comment for 5 seconds by toggling state to isDeleting. If the user clicks the undo button during that time, then state toggles back.  
 
 ## TECHNOLOGY
 
@@ -50,9 +58,10 @@ Two options were considered for implementation:
 |Tool Name|Function|
 |---|---|
 |**ReactJS**|to write reusable components|
-|**Create-React-App**|to bootstrap React setup and initial folder structure|
+|**Create-React-App**|to setup React and initial folder structure|
 |**uuid**|to assign children unique key props|
 |**classnames**|to conditionally render classes|
+|**figma**|to get exact measurements, images, and a visual for the final app |
 
 ## Approach 
 
@@ -67,18 +76,43 @@ Comment.css holds the CSS for CommentList, Comment, and Comment form because Rea
 
 I wanted to show my understanding of both context and props. 
 
-Creating 
-
-Next steps:
-
 - maybe switch the - i was undecided between two solutions for the delete and undo buttons. 
 
 One is to store the current state in ` [prevState
 - Organize the CSS - Move the Edit and Form components
 
-- Use Git Rebase to clean up github commits. 
 
-- Create variables for colors in CSS at the top of the page so they can be easily referenced, and color theme of the site can be easily updated.
+#### State management
+* Managed state that was need by many components throughout the app with React hooks useContext. comment state is managed using React's Context API `CommentContextProvider`
+
+#### API calls
+* handled in `src/API/UnicornAPI.js`, which includes a static API class tying together all methods used to communicate with API
+* prevents code duplication and separates concerns
+
+###### A Short Reflection
+
+
+
+#### EXCELS
+
+I'm most proud of the delete and edit buttons that appear when the 
+#### LIMITATIONS
+##### Next Steps:
+
+- Create an `ErrorMessage` component that will render an error message for the user if there is a problem fetching and loading data.
+
+- Use Git Rebase to clean up Github commits. 
+
+- Create reusable variables for colors in CSS.
+
+- Since there were many design and functionality features in common between `EditForm` and `CommentForm`, create an `Asset` `form.css` that holds all of their shared functionality together (same thing with Comment) `Comment.css`. Create `comment.css` inside of the `Asset` folder.
+
+- Further simplify my `Components` by creating custom `hooks` logic such as **useInputState** for reusable form functionality such as **handleChange** and reusable small components i.e. `Button`.
+
+- Create a backend so users can login, create profiles, and review restaurants under their profile name and image. 
+
+
+
 
 ## Approach 
 
