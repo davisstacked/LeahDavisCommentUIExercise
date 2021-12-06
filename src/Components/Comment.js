@@ -1,5 +1,5 @@
 import React, { useContext, useState, useRef } from 'react';
-import CommentContext from './context/CommentContext';
+import CommentContext from '../context/CommentContext';
 import moment from 'moment';
 import classNames from 'classnames';
 
@@ -101,16 +101,18 @@ const Comment = ({ time, message, user, image, id}) => {
     );
   } else {
     return (
-      <div onMouseEnter={() => showPopup(id)} className='Comment'>
+      <div
+        className='Comment'
+        onMouseEnter={() => showPopup(id)}>
         <div className={commentComment}>
-            <img
-              className="Comment-avatar"
-              alt={user}
-              src={image}
-              sx={{ width: 40, height: 40 }}
-            />
+          <img
+            className='Comment-avatar'
+            alt={user}
+            src={image}
+            sx={{ width: 40, height: 40 }}
+          />
 
-          <div className='Comment-message'>
+          <div className='Comment-text'>
             <p>
               {user ? user : 'Guest'}∙{moment(time).fromNow()}
             </p>

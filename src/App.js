@@ -1,10 +1,5 @@
 import CommentContextProvider from './context/CommentContextProvider';
-// import RestaurantInfo from './RestaurantInfo';
-import CommentPage from './CommentPage';
-
-// import CommentFormTwo from './CommentFormTwo';
-// import CommentList from './CommentList';
-// import MouseOverPopover from './Popover';
+import CommentPage from './Components/CommentPage';
 
 function App() {
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import CommentContext from './context/CommentContext';
+import CommentContext from '../context/CommentContext';
 import Comment from './Comment';
 
 const CommentList = () => {
@@ -12,6 +12,7 @@ const CommentList = () => {
           <li style={{ listStyleType: 'none' }}>
             {comments.map((comment) => (
               <Comment
+                className="single-comment"
                 user={comment.user}
                 message={comment.message}
                 time={comment.time}

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import CommentContext from './context/CommentContext';
+import CommentContext from '../context/CommentContext';
 import Avatar from '@mui/material/Avatar';
 import classNames from 'classnames';
 
@@ -26,14 +26,6 @@ const CommentForm = () => {
   const handleChange = (e) => {
     setComment((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
-
-  // const handleDisable = (e) => {
-  //   if (comment.message === '' ) {
-  //     setDisable(true);
-  //   } else {
-  //     setDisable(false);
-  //   }
-  // }
 
   return (
     <form className='CommentForm form' onSubmit={handleSubmit}>

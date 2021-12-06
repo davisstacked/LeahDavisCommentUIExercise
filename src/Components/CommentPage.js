@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import CommentContext from './context/CommentContext';
+import CommentContext from '../context/CommentContext';
 import Restaurant from './Restaurant';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';

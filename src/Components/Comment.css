@@ -1,11 +1,27 @@
+.Comment {
+  width: 88rem;
 
+
+}
+
+/* The entire comment (avatar + message text */
 .Comment-comment {
   display: flex;
+}
+
+/* parent of the message text */
+.Comment-text {
+
 }
 
 .Comment-avatar {
   height: 4rem;
   width: 4rem;
+  border-radius: 2.8rem;
+  -webkit-border-radius: 2.8rem;
+  -moz-border-radius: 2.8rem;
+  -ms-border-radius: 2.8rem;
+  -o-border-radius: 2.8rem;
 }
 
 .EditForm-avatar {
@@ -15,4 +31,8 @@
 
 .hidden {
   display: none;
+}
+
+ul {
+  padding: 0;
 }
