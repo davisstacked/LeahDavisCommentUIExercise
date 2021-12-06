@@ -65,10 +65,10 @@ Two options were considered for implementation:
 
 ## Approach 
 
-How I handled disabling the button? maybe. 
+###### Responsive Design
+In `<html>` in `Index.css`, I set the font-size to 10px in order to set one Rem Unit equal to 10px. This greatly simplified translating the Figma mockup into code as I could simply divide pixels by ten.
 
-<!-- index.css -->
-To make the form responsive I set the font-size to 10px in order to easily use the rem unit. 
+With only few other code modifications necessary, the `CommentPage` is already responsive by simply changing the value of **font-size** in `<html>` inside of a media query.
 
 <!-- Comment.css -->
 <!-- should be moved to the asset file called comment.css -->
@@ -83,7 +83,13 @@ One is to store the current state in ` [prevState
 
 
 #### State management
-* Managed state that was need by many components throughout the app with React hooks useContext. comment state is managed using React's Context API `CommentContextProvider`
+* I managed state that was needed by many components throughout the app using `CommentContextProvider` and `CommentContext` in juncture with React Hooks **useRef** **useState** and **useEffect**. 
+
+I also passed props in many `Components` when the function or state was only needed by one or two levels of the component tree. Specificially `EditForm` `Comment` and `CommentList` use comments. 
+
+######
+
+I heavily utilized State management 
 
 #### API calls
 * handled in `src/API/UnicornAPI.js`, which includes a static API class tying together all methods used to communicate with API
@@ -93,7 +99,7 @@ One is to store the current state in ` [prevState
 
 
 
-#### EXCELS
+#### GREAT STUFF
 
 I'm most proud of the delete and edit buttons that appear when the 
 #### LIMITATIONS
@@ -110,6 +116,8 @@ I'm most proud of the delete and edit buttons that appear when the
 - Further simplify my `Components` by creating custom `hooks` logic such as **useInputState** for reusable form functionality such as **handleChange** and reusable small components i.e. `Button`.
 
 - Create a backend so users can login, create profiles, and review restaurants under their profile name and image. 
+
+- Simplify ContextProvider to only state and functions used by many components.
 
 
 
