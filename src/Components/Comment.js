@@ -115,7 +115,7 @@ const Comment = ({ time, message, user, image, id}) => {
           <img
             className='Comment-avatar'
             alt={user}
-            src={image ? image : './images/LeahAvatar.jpeg'}
+            src={image ? image : './images/LeahsAvatar.png'}
             sx={{ width: 40, height: 40}}
           />
 

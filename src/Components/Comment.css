@@ -54,15 +54,10 @@
 }
 
 .Comment-avatar {
-  margin-right: 1.2rem;
-  padding-top: 16px;
+  margin: 1.6rem 1.2rem 0 0;
   height: 40px;
   width: 40px;
-  border-radius: 2.8rem;
-  -webkit-border-radius: 2.8rem;
-  -moz-border-radius: 2.8rem;
-  -ms-border-radius: 2.8rem;
-  -o-border-radius: 2.8rem;
+  z-index: -1;
 }
 
 .Comment-time-posted {

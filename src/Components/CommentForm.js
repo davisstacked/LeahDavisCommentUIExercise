@@ -37,7 +37,7 @@ const CommentForm = () => {
       <Avatar
         className='CommentForm-avatar'
         alt='Leah'
-        src='./images/LeahAvatar.jpeg'
+        src='./images/LeahsAvatar.png'
         sx={{ width: 48, height: 48 }}
       />
       <div className='form-container'>
