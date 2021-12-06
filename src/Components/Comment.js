@@ -1,7 +1,10 @@
 import React, { useContext, useState, useRef } from 'react';
 import CommentContext from '../context/CommentContext';
+import EditIcon from '../assets/EditIcon';
+import DeleteIcon from '../assets/DeleteIcon';
 import moment from 'moment';
 import classNames from 'classnames';
+
 
 import './Comment.css';
 import './form.css';
@@ -129,8 +132,12 @@ const Comment = ({ time, message, user, image, id}) => {
           </div>
         </div>
         <div className={commentPopup}>
-          <button onClick={handleDelete}>Delete</button>
-          <button onClick={toggleForm}>Edit</button>
+          <button onClick={handleDelete}>
+            <DeleteIcon />
+          </button>
+          <button onClick={toggleForm}>
+            <EditIcon />
+          </button>
         </div>
         <div className={commentUndo}>
           <button onClick={undo}>Undo</button>
