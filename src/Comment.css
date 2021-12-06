@@ -2,6 +2,16 @@
   display: flex;
 }
 
+.Comment-avatar {
+  height: 4rem;
+  width: 4rem;
+}
+
+.EditForm-avatar {
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
 .hidden {
   display: none;
 }
