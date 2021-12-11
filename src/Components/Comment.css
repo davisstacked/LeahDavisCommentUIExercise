@@ -16,9 +16,9 @@
 }
 
 /*  Comment-list is an <li> and the Parent of the Comment Component. */
-.Comment-list {
+/* .Comment-list {
   height: 15.2;
-}
+} */
 
 /* Parent of the avatar and message text */
 .Comment {
@@ -46,14 +46,20 @@
   /* top: 3.2rem; */
 }
 
-.white {
+/* Undo Button - gets rid of hover effect */
+/* For the whole comment */
+.hideComment {
   background-color: #FFFFFF !important;
-  border-top: #027A48 2px solid;
-  border-bottom: #027A48 2px solid;
+  /* border-top: #027A48 2px solid;
+  border-bottom: #027A48 2px solid; */
+  height: 1px;
+  border: none;
 }
 
 .CommentForm-avatar {
   margin-right: 12px;
+  height: 4.8rem;
+  width: 4.8rem;
 }
 
 .Comment-avatar {

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import CommentContext from '../context/CommentContext';
-import Avatar from '@mui/material/Avatar';
 import classNames from 'classnames';
 
 import './form.css';
@@ -8,7 +7,7 @@ import './Comment.css'
 
 const CommentForm = () => {
 
-  const { addComment } = useContext(CommentContext);
+  const { addComment, comments } = useContext(CommentContext);
   const [comment, setComment] = useState({ message: '' });
 
   // Conditionally disable button if user is typing
@@ -34,11 +33,10 @@ const CommentForm = () => {
 
   return (
     <form className='CommentForm form' onSubmit={handleSubmit}>
-      <Avatar
+      <img
         className='CommentForm-avatar'
-        alt='Leah'
-        src='./images/LeahsAvatar.png'
-        sx={{ width: 48, height: 48 }}
+        alt={comments.user ? comments.user : 'Leah Davis'}
+        src={comments.image ? comments.image : './images/LeahsAvatar.png'}
       />
       <div className='form-container'>
         <textarea
@@ -47,9 +45,8 @@ const CommentForm = () => {
           onChange={handleChange}
           name='message'
           value={comment.message}
-          type='text'
         />
-        <button disabled={!typing} className={buttonOnOff}>
+        <button type='submit' disabled={!typing} className={buttonOnOff}>
           Add Comment
         </button>
       </div>
