@@ -14,6 +14,14 @@ body {
   
 }
 
+/* RESPONSIVE */
+
 html {
   font-size: 10px;
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 7px;
+  }
 }

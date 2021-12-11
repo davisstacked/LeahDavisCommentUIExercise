@@ -3,8 +3,8 @@ import React from 'react';
 const DeleteIcon = () => {
   return (
     <svg
-      width='18'
-      height='20'
+      width='1.8rem'
+      height='2.0rem'
       viewBox='0 0 18 20'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

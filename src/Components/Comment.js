@@ -23,7 +23,7 @@ const Comment = ({ time, message, user, image, id}) => {
   // classNames - an external library to conditionally render CSS classes.
   // Conditionally displays the delete, edit, and undo buttons using classNames.
 
-  //While deleting 
+  //During 5 second delete hide the comment
   const Comment = classNames('Comment', {
     hideComment: hoveredCommentId === id && isDeleting
   });
@@ -31,7 +31,6 @@ const Comment = ({ time, message, user, image, id}) => {
   const commentPopup = classNames('Comment-popup', {
     hidden: hoveredCommentId !== id || isDeleting,
   });
-
 
   const commentUndo = classNames('Comment-undo', {
     hidden: !isDeleting,

@@ -15,8 +15,8 @@
   -moz-border-radius: .8rem;
   -ms-border-radius: .8rem;
   -o-border-radius: .8rem;
-  box-shadow: 0px 0px 0px 4px #F4EBFF;
-  box-shadow: 0px 1px 2px 0px #1018280D;
+  box-shadow: 0px 0px 0px .4rem #F4EBFF;
+  box-shadow: 0px .1rem .2rem 0px #1018280D;
 }
 
 .form-container:hover {
@@ -56,8 +56,8 @@
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 1.4rem;
+  line-height: 2.0rem;
 }
 
 .formButtonDisabled {
