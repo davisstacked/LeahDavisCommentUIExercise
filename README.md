@@ -22,8 +22,6 @@ If you're having problems starting the project, in `package.json` replace with t
 
 `npm start` to run app in development mode on [http://localhost:3000](http://localhost:3000)
 
-`npm test` to run tests in interactive watch mode
-
 `npm run build` to build app for production in the `build` folder
 
 ### Overview
@@ -65,9 +63,9 @@ With only few other code modifications necessary, the `CommentPage` is already r
 
 ##### State management
 
-* I managed state that was needed by many components throughout the app using `CommentContextProvider` and `CommentContext` in juncture with React Hooks **useRef** **useState** and **useEffect**. 
+* I managed state that was needed by many components throughout the app using `CommentContextProvider` and `CommentContext` in juncture with React Hooks **useContext** **useState** and **useEffect**. 
 
-I also passed props in many `Components` when the function or state was only needed by one or two levels of the component tree. Specificially `EditForm` `Comment` and `CommentList` use comments. 
+I also passed props in many `Components` when the function or state was only needed by one or two levels of the component tree. Specificially `EditForm`, `Comment`, `CommentButtons` and `CommentList` utilize props. 
 
 #### Fetching Data
 
@@ -80,6 +78,7 @@ I also passed props in many `Components` when the function or state was only nee
 * `Restaurant` displays restaurant information.
 * `CommentForm` users can add new comments to the CommentList.
 * `CommentList` renders the list of user comments.
+* `CommentButtons` the edit, delete and undo buttons for the `Comment` component
 * `Comment` where user selects game difficulty, maze size & name.
 * `EditForm` a form that allows users to update their comments.
 
@@ -96,7 +95,9 @@ The problems I found with this were largely style-related. If the comment is del
 
 So I went with my other idea:
 
-2. Instead of deleting the comment on button click, I hide it from the DOM instead, creating and changing a **useStateHook** to isDeleting=true.  
+2. Instead of deleting the comment on button click, I hide it from the DOM instead, creating and changing a **useState hook** to isDeleting=true.  
+
+Instead of making the comment totally invisible. I hid its inner text and made the Comment only 1px high. This still gave the Undo button a place to anchor while also matching the desired appearance of the mockup.
 
 Use setTimeOut to give the user five seconds to undo the delete by toggling !isDeleting. I learned that you can't get updated state within a setTimeOut function as it will refer to the old state. 
 
@@ -106,20 +107,15 @@ useRef hook grabs newly updated state the setTimeOut function can read.
 
 #### NEXT STEPS:
 
-- Create an `ErrorMessage` component that will render an error message for the user if there is a problem fetching and loading data.
+- Create an `ErrorMessage` component that will render an error message for the user to try reloading the page if there is a problem fetching and loading data.
 
 - Use Git Rebase to clean up Github commits. 
 
 - Create reusable variables for colors in CSS.
 
-- Since there were many design and functionality features in common between `EditForm` and `CommentForm`, create an `Asset` `form.css` that holds all of their shared functionality together (same thing with Comment) `Comment.css`. Create `comment.css` inside of the `Asset` folder.
+- Further organize the CSS files for readability.
 
-- Further simplify my `Components` by creating custom `hooks` logic such as **useInputState** for reusable form functionality such as **handleChange** and reusable small components i.e. `Button`.
+- Further simplify my `Components` by creating custom `hooks` logic such as **useInputState** for reusable form functionality such as **handleChange** and reusable small components i.e. `Button` and `Avatar`.
 
 - Create a backend so users can login, create profiles, and review restaurants under their profile name and image. 
-
-- Simplify ContextProvider to only state and functions used by many components.
-
-
-
 

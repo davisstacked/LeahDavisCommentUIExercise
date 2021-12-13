@@ -15,10 +15,6 @@
   color: #101828;
 }
 
-/*  Comment-list is an <li> and the Parent of the Comment Component. */
-/* .Comment-list {
-  height: 15.2;
-} */
 
 /* Parent of the avatar and message text */
 .Comment {

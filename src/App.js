@@ -1,5 +1,5 @@
 import CommentContextProvider from './context/CommentContextProvider';
-import CommentPage from './Components/CommentPage';
+import CommentPage from './Pages/CommentPage';
 
 function App() {
 

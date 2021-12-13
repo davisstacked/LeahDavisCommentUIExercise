@@ -1,8 +1,8 @@
 import React, { useEffect, useContext, useState } from 'react';
 import CommentContext from '../context/CommentContext';
-import Restaurant from './Restaurant';
-import CommentList from './CommentList';
-import CommentForm from './CommentForm';
+import Restaurant from '../Components/Restaurant';
+import CommentList from '../Components/CommentList';
+import CommentForm from '../Components/CommentForm';
 import { v4 as uuid } from 'uuid';
 
 import './CommentPage.css';
