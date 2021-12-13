@@ -19,6 +19,11 @@ const Comment = ({ time, message, user, image, id}) => {
     setHoveredCommentId(id);
   };
 
+  // Conditionally renders based on Edit state either a form or the comment
+  const handleToggleEditForm = () => {
+    setEdit(!edit);
+  };
+
   // Classnames for DELETING COMMENT (hiding comment) (had to be two separate because the entire comment isn't totally hidden. Only reduced to 1px so the Undo button knows where it is)
   const Comment = classNames('Comment', {
     hideComment: hoveredCommentId === id && isDeleting,
@@ -27,11 +32,6 @@ const Comment = ({ time, message, user, image, id}) => {
   const CommentComment = classNames('Comment-comment', {
     hidden: isDeleting,
   });
-
-  // Conditionally renders based on Edit state either a form or the comment
-  const handleToggleEditForm = () => {
-    setEdit(!edit);
-  };
 
   if (edit) {
     return (
@@ -79,6 +79,5 @@ const Comment = ({ time, message, user, image, id}) => {
     );
   }
 }
-// };
 
 export default Comment;

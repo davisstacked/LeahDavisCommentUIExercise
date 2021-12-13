@@ -10,9 +10,9 @@ const EditForm = ({id, user, image, message, setEdit }) => {
   const [newMessage, setNewMessage] = useState(message);
   
   const { comments, setComments } = useContext(CommentContext);
+  
   const handleUpdate = (e) => {
     e.preventDefault();
-    // take new comment and pass to state thru Context.
     updateComment(id, newMessage);
     setEdit(false);
   };
