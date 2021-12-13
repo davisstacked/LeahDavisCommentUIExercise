@@ -13,12 +13,13 @@ const CommentPage = () => {
 
   const [restaurantData, setRestaurantData] = useState({});
 
-    const addUUID = (comment) => {
-      const newComment = { ...comment, id: uuid() };
-      setComments((state) => [...state, newComment]);
-    };
-
+  const addUUID = (comment) => {
+    const newComment = { ...comment, id: uuid() };
+    setComments((state) => [...state, newComment]);
+  };
+  
   useEffect(() => {
+
     const getData = () => {
       try {
         fetch('data.json', {
