@@ -19,6 +19,7 @@ const CommentPage = () => {
   };
   
   useEffect(() => {
+    
 
     const getData = () => {
       try {
