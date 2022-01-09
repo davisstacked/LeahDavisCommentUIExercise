@@ -6,11 +6,16 @@
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.8",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "typescript": "^4.5.4",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },
@@ -37,5 +42,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "### Scripts #### IMPORTANT NOTE ON START AND BUILD SCRIPTS at top of ReadMe",
+  "main": "index.tsx",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davisstacked/LeahDavisCommentUIExercise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davisstacked/LeahDavisCommentUIExercise/issues"
+  },
+  "homepage": "https://github.com/davisstacked/LeahDavisCommentUIExercise#readme"
 }

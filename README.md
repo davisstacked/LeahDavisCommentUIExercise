@@ -2,10 +2,9 @@
 
 ### Scripts
 #### IMPORTANT NOTE ON START AND BUILD SCRIPTS
-I recently (Dec 2021) updated Node.js to v17.0.1 so to run Create React App, I needed to update the `package.json` `start` and `build` scripts to: 
+I recently (Dec 2021) updated Node.js to v17.0.1 so to run Create React App, I needed to update the `package.json` `start` script to: 
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
     }
 
 [Stackoverflow](https://stackoverflow.com/questions/69665222/node-17-0-1-causes-some-error-digital-envelope-routinesunsupported)
@@ -14,9 +13,7 @@ If you're having problems starting the project, in `package.json` replace with t
 
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-  },
-
+  }
 
 `npm install` to install dependencies 
 
