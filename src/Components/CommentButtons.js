@@ -4,7 +4,7 @@ import EditIcon from '../assets/EditIcon';
 import DeleteIcon from '../assets/DeleteIcon';
 import classNames from 'classnames';
 
-const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm }) => {
+const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm, setDeleteId, deleteId }) => {
   const { removeComment, hoveredCommentId } = useContext(CommentContext);
 
   // Delete/Edit popup
@@ -21,10 +21,12 @@ const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm })
 
   const handleDelete = () => {
     setIsDeleting(true);
+    setDeleteId(hoveredCommentId);
 
     setTimeout(() => {
       if (isDeletingRef.current) {
         removeComment(id);
+        setDeleteId('');
       }
     }, 5000);
   };
@@ -32,6 +34,7 @@ const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm })
   // Undo Delete Button
   const handleUndoDelete = () => {
     setIsDeleting(false);
+    setDeleteId('');
   };
 
   const CommentUndo = classNames('Comment-undo', {

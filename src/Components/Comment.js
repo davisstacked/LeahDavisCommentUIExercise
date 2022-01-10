@@ -8,16 +8,21 @@ import CommentButtons from './CommentButtons';
 import './Comment.css';
 import './form.css';
 
-const Comment = ({ time, message, user, image, id}) => {
-  const { setHoveredCommentId, hoveredCommentId } = useContext(CommentContext);
+const Comment = ({ time, message, user, image, id }) => {
+  const { setHoveredCommentId } = useContext(CommentContext);
 
   const [edit, setEdit] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteId, setDeleteId] = useState('');
 
   // On hover over comment display Edit and Delete Popup
   const handleEditAndDeletePopup = (id) => {
     setHoveredCommentId(id);
   };
+
+  const handleMouseExit = () => {
+    setHoveredCommentId('');
+  }
 
   // Conditionally renders based on Edit state either a form or the comment
   const handleToggleEditForm = () => {
@@ -26,7 +31,7 @@ const Comment = ({ time, message, user, image, id}) => {
 
   // Classnames for DELETING COMMENT (hiding comment) (had to be two separate because the entire comment isn't totally hidden. Only reduced to 1px so the Undo button knows where it is)
   const Comment = classNames('Comment', {
-    hideComment: hoveredCommentId === id && isDeleting,
+    hideComment: deleteId === id && isDeleting,
   });
 
   const CommentComment = classNames('Comment-comment', {
@@ -48,6 +53,7 @@ const Comment = ({ time, message, user, image, id}) => {
       <div
         className={Comment}
         onMouseEnter={() => handleEditAndDeletePopup(id)}
+        onMouseExit={handleMouseExit}
       >
         <div className={CommentComment}>
           <img
@@ -71,6 +77,8 @@ const Comment = ({ time, message, user, image, id}) => {
         <CommentButtons
           isDeleting={isDeleting}
           setIsDeleting={setIsDeleting}
+          deleteId={deleteId}
+          setDeleteId={setDeleteId}
           id={id}
           handleEditAndDeletePopup={handleEditAndDeletePopup}
           handleToggleEditForm={handleToggleEditForm}
