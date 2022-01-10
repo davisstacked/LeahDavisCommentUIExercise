@@ -2,8 +2,35 @@ import React from 'react';
 
 import './Restaurant.css';
 
+interface dataProps {
+  data: {
+    name: string;
+    shortDescription: string;
+    rating: number;
+    review_count: number;
+    price: string;
+    phone: string;
+    url: string;
+    coordinates: {
+      latitude: number;
+      longitude: number;
+    }
+    image_url: string;
+    location: {
+      city: string;
+      country: string;
+      address2: string;
+      state: string;
+      address1: string;
+      zip_code: string;
+    };
+    categories: Array<{
+      title: string;
+    }>
+  }
+}
 
-const Restaurant = ({ data }) => {
+const Restaurant = ({ data }: dataProps) => {
  
   return (
     <div className='Restaurant'>

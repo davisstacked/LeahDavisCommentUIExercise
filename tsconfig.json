@@ -1,26 +1,32 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es6", // specify ECMAScript target version
+    "rootDir": "src",
+    "outDir": "build",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "es6",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "sourceMap": true,          // allow sourcemap support
+    "strictNullChecks": true,   // enable strict null checks as a best practice          
+    "jsx": "react",             // use typescript to transpile jsx to js          
   },
   "include": [
     "src"
   ]
 }
+
+//  outDir maybe should be "./dist/ according to https://github.com/Microsoft/TypeScript-React-Conversion-Guide#typescript-react-conversion-guide

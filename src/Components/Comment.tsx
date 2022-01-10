@@ -8,14 +8,22 @@ import CommentButtons from './CommentButtons';
 import './Comment.css';
 import './form.css';
 
-const Comment = ({ time, message, user, image, id}) => {
+interface CommentInfo {
+  time: string;
+  message: string;
+  user: string;
+  image: string;
+  id: string;
+}
+
+const Comment = ({ time, message, user, image, id }: CommentInfo) => {
   const { setHoveredCommentId, hoveredCommentId } = useContext(CommentContext);
 
   const [edit, setEdit] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
   // On hover over comment display Edit and Delete Popup
-  const handleEditAndDeletePopup = (id) => {
+  const handleEditAndDeletePopup = (id: string) => {
     setHoveredCommentId(id);
   };
 
