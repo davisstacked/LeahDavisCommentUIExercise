@@ -25,7 +25,7 @@ const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm, s
 
     setTimeout(() => {
       if (isDeletingRef.current) {
-        removeComment(id);
+        removeComment(deleteId);
         setDeleteId('');
       }
     }, 5000);
