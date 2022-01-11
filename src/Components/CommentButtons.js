@@ -1,10 +1,10 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import CommentContext from '../context/CommentContext';
 import EditIcon from '../assets/EditIcon';
 import DeleteIcon from '../assets/DeleteIcon';
 import classNames from 'classnames';
 
-const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm }) => {
+const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm, setDeleteId, deleteId }) => {
   const { removeComment, hoveredCommentId } = useContext(CommentContext);
 
   // Delete/Edit popup
@@ -15,23 +15,40 @@ const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm })
   // ************* DELETE AND UNDO ***************
 
   // useRef in setTimeout to retrieve current state.
-  // https://medium.com/programming-essentials/how-to-access-the-state-in-settimeout-inside-a-react-function-component-39a9f031c76f
   const isDeletingRef = useRef(isDeleting);
   isDeletingRef.current = isDeleting;
 
-  const handleDelete = () => {
-    setIsDeleting(true);
+  const deleteIdRef = useRef(deleteId);
+  deleteIdRef.current = deleteId;
 
-    setTimeout(() => {
-      if (isDeletingRef.current) {
-        removeComment(id);
-      }
-    }, 5000);
+  let fiveSecondDelete;
+
+  const fiveSecondDeleteRef = useRef(fiveSecondDelete);
+  fiveSecondDeleteRef.current = fiveSecondDelete;
+
+  const handleDelete = () => {
+
+    if (deleteId) {
+      removeComment(deleteId);
+      setDeleteId('');
+    } else {
+      setIsDeleting(true);
+      setDeleteId(hoveredCommentId);
+      
+      fiveSecondDeleteRef.current = setTimeout(() => {
+        if (isDeletingRef.current) {
+          removeComment(deleteIdRef.current);
+        }
+      }, 5000);
+    }
+
   };
 
   // Undo Delete Button
   const handleUndoDelete = () => {
     setIsDeleting(false);
+    setDeleteId('');
+    clearTimeout(fiveSecondDeleteRef.current);
   };
 
   const CommentUndo = classNames('Comment-undo', {
