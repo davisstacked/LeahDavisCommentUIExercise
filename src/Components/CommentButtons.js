@@ -15,43 +15,40 @@ const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm, s
   // ************* DELETE AND UNDO ***************
 
   // useRef in setTimeout to retrieve current state.
-  // https://medium.com/programming-essentials/how-to-access-the-state-in-settimeout-inside-a-react-function-component-39a9f031c76f
   const isDeletingRef = useRef(isDeleting);
   isDeletingRef.current = isDeleting;
 
   const deleteIdRef = useRef(deleteId);
   deleteIdRef.current = deleteId;
 
-  //  const fiveSecondDeleteRef = useRef(fiveSecondDelete);
-  //  fiveSecondDeleteRef.current = fiveSecondDelete;
+  let fiveSecondDelete;
+
+  const fiveSecondDeleteRef = useRef(fiveSecondDelete);
+  fiveSecondDeleteRef.current = fiveSecondDelete;
 
   const handleDelete = () => {
 
     if (deleteId) {
-      removeComment(deleteId)
+      removeComment(deleteId);
+      setDeleteId('');
+    } else {
+      setIsDeleting(true);
+      setDeleteId(hoveredCommentId);
+      
+      fiveSecondDeleteRef.current = setTimeout(() => {
+        if (isDeletingRef.current) {
+          removeComment(deleteIdRef.current);
+        }
+      }, 5000);
     }
 
-    setIsDeleting(true);
-    setDeleteId(hoveredCommentId);
-    
-    const fiveSecondDelete = setTimeout(() => {
-      if (isDeletingRef.current) {
-        removeComment(deleteIdRef.current);
-        setDeleteId('');
-      }
-    }, 5000);
-
-    return clearTimeout(fiveSecondDelete)
   };
-
-  // if deleteId changes. delete last comment immediately. 
-
-  // use ref somehow to get setTimeout id to use it in the undo button. clear timeout. 
 
   // Undo Delete Button
   const handleUndoDelete = () => {
     setIsDeleting(false);
     setDeleteId('');
+    clearTimeout(fiveSecondDeleteRef.current);
   };
 
   const CommentUndo = classNames('Comment-undo', {
