@@ -9,20 +9,19 @@ import './Comment.css';
 import './form.css';
 
 const Comment = ({ time, message, user, image, id }) => {
-  const { setHoveredCommentId } = useContext(CommentContext);
+  const { setHoveredCommentId, setDeleteId, deleteId } = useContext(CommentContext);
 
   const [edit, setEdit] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [deleteId, setDeleteId] = useState('');
 
   // On hover over comment display Edit and Delete Popup
   const handleEditAndDeletePopup = (id) => {
     setHoveredCommentId(id);
   };
 
-  const handleMouseExit = () => {
-    setHoveredCommentId('');
-  }
+  // const handleMouseExit = () => {
+  //   setHoveredCommentId('');
+  // }
 
   // Conditionally renders based on Edit state either a form or the comment
   const handleToggleEditForm = () => {
@@ -53,7 +52,7 @@ const Comment = ({ time, message, user, image, id }) => {
       <div
         className={Comment}
         onMouseEnter={() => handleEditAndDeletePopup(id)}
-        onMouseExit={handleMouseExit}
+        // onMouseExit={handleMouseExit}
       >
         <div className={CommentComment}>
           <img

@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 const CommentContextProvider = ({ children }) => {
   const [comments, setComments] = useState([]);
   const [hoveredCommentId, setHoveredCommentId] = useState('');
+  const [deleteId, setDeleteId] = useState('');
 
   const addComment = (comment) => {
     const newComment = {
@@ -31,6 +32,8 @@ const CommentContextProvider = ({ children }) => {
         removeComment,
         setHoveredCommentId,
         hoveredCommentId,
+        deleteId,
+        setDeleteId,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import CommentContext from '../context/CommentContext';
 import EditIcon from '../assets/EditIcon';
 import DeleteIcon from '../assets/DeleteIcon';
@@ -19,17 +19,34 @@ const CommentButtons = ({ setIsDeleting, isDeleting, id, handleToggleEditForm, s
   const isDeletingRef = useRef(isDeleting);
   isDeletingRef.current = isDeleting;
 
+  const deleteIdRef = useRef(deleteId);
+  deleteIdRef.current = deleteId;
+
+  //  const fiveSecondDeleteRef = useRef(fiveSecondDelete);
+  //  fiveSecondDeleteRef.current = fiveSecondDelete;
+
   const handleDelete = () => {
+
+    if (deleteId) {
+      removeComment(deleteId)
+    }
+
     setIsDeleting(true);
     setDeleteId(hoveredCommentId);
-
-    setTimeout(() => {
+    
+    const fiveSecondDelete = setTimeout(() => {
       if (isDeletingRef.current) {
-        removeComment(deleteId);
+        removeComment(deleteIdRef.current);
         setDeleteId('');
       }
     }, 5000);
+
+    return clearTimeout(fiveSecondDelete)
   };
+
+  // if deleteId changes. delete last comment immediately. 
+
+  // use ref somehow to get setTimeout id to use it in the undo button. clear timeout. 
 
   // Undo Delete Button
   const handleUndoDelete = () => {
